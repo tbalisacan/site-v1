@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Container } from "./ui/container";
 import { ReactNode } from "react";
-import StackIcon from "tech-stack-icons";
 import { animate, motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Skills() {
   const scale = [1, 1.1, 1];
@@ -348,32 +348,58 @@ const techStack = [
   {
     id: 1,
     name: "ReactJS",
-    icon: <StackIcon className="w-10 h-10" name="reactjs" />,
+    icon: (
+      <Image src="icons/reactjs.svg" width="40" height="40" alt="reactjs" />
+    ),
   },
   {
     id: 2,
     name: "Next.js",
-    icon: <StackIcon className="w-10 h-10" name="nextjs2" />,
+    icon: (
+      <Image src="icons/nextjs2.svg" width="40" height="40" alt="nextjs2" />
+    ),
   },
   {
     id: 3,
     name: "Tailwind CSS",
-    icon: <StackIcon className="w-10 h-10" name="tailwindcss" />,
+    icon: (
+      <Image
+        src="icons/tailwindcss.svg"
+        width="40"
+        height="40"
+        alt="tailwindcss"
+      />
+    ),
   },
   {
     id: 4,
     name: "Shadcn UI",
-    icon: <StackIcon className="w-10 h-10 dark:invert" name="shadcnui" />,
+    icon: (
+      <Image
+        src="icons/shadcnui.svg"
+        width="40"
+        height="40"
+        alt="shadcnui"
+        className="dark:brightness-0 dark:invert"
+      />
+    ),
   },
   {
     id: 5,
     name: "Gatsby",
-    icon: <StackIcon className="w-10 h-10" name="gatsby" />,
+    icon: <Image src="icons/gatsby.svg" width="40" height="40" alt="gatsby" />,
   },
   {
     id: 6,
     name: "Boostrap",
-    icon: <StackIcon className="w-10 h-10" name="bootstrap5" />,
+    icon: (
+      <Image
+        src="icons/bootstrap5.svg"
+        width="40"
+        height="40"
+        alt="bootstrap5"
+      />
+    ),
   },
 ];
 
@@ -381,22 +407,29 @@ const languages = [
   {
     id: 1,
     name: "Typescript",
-    icon: <StackIcon className="w-10 h-10" name="typescript" />,
+    icon: (
+      <Image
+        src="icons/typescript.svg"
+        width="40"
+        height="40"
+        alt="typescript"
+      />
+    ),
   },
   {
     id: 2,
     name: "Javascript",
-    icon: <StackIcon className="w-10 h-10" name="js" />,
+    icon: <Image src="icons/js.svg" width="40" height="40" alt="js" />,
   },
   {
     id: 3,
     name: "HTML5",
-    icon: <StackIcon className="w-10 h-10" name="html5" />,
+    icon: <Image src="icons/html5.svg" width="40" height="40" alt="html5" />,
   },
   {
     id: 4,
     name: "CSS3",
-    icon: <StackIcon className="w-10 h-10" name="css3" />,
+    icon: <Image src="icons/css3.svg" width="40" height="40" alt="css3" />,
   },
 ];
 
@@ -404,12 +437,12 @@ const designTools = [
   {
     id: 1,
     name: "Figma",
-    icon: <StackIcon className="w-10 h-10" name="figma" />,
+    icon: <Image src="icons/figma.svg" width="40" height="40" alt="figma" />,
   },
   {
     id: 2,
     name: "Photoshop",
-    icon: <StackIcon className="w-10 h-10" name="ps" />,
+    icon: <Image src="icons/ps.svg" width="40" height="40" alt="ps" />,
   },
 ];
 
@@ -417,16 +450,24 @@ const devTools = [
   {
     id: 1,
     name: "Git",
-    icon: <StackIcon className="w-10 h-10" name="git" />,
+    icon: <Image src="icons/git.svg" width="40" height="40" alt="git" />,
   },
   {
     id: 2,
     name: "GitHub",
-    icon: <StackIcon className="w-10 h-10 dark:invert" name="github" />,
+    icon: (
+      <Image
+        src="icons/github.svg"
+        width="40"
+        height="40"
+        alt="github"
+        className="dark:brightness-0 dark:invert"
+      />
+    ),
   },
   {
     id: 3,
     name: "VSCode",
-    icon: <StackIcon className="w-10 h-10" name="vscode" />,
+    icon: <Image src="icons/vscode.svg" width="40" height="40" alt="vscode" />,
   },
 ];
