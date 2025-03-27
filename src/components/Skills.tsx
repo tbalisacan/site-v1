@@ -1,0 +1,432 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Container } from "./ui/container";
+import { ReactNode } from "react";
+import StackIcon from "tech-stack-icons";
+import { animate, motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+export function Skills() {
+  const scale = [1, 1.1, 1];
+  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+  const sequence = [
+    [
+      ".circle-1",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-2",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-3",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-4",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-5",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-6",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+  ];
+
+  useEffect(() => {
+    animate(sequence, {
+      // @ts-expect-error: no matching overload
+      repeat: Infinity,
+      repeatDelay: 0,
+    });
+  }, []);
+
+  return (
+    <section className="-mt-40 mb-32 relative z-10">
+      <Container>
+        <div className="grid grid-cols-1 gap-3">
+          <ul className="grid gap-3 lg:grid-cols-3">
+            <GridItem
+              className="[&>div]:border-0 lg:[&>div]:border [&>div]:shadow-none lg:[&>div]:dark:border-white/10 lg:[&>div]:dark:bg-black/10 lg:[&>div]:shadow-box-inset"
+              glowClassName="!hidden lg:!block"
+            >
+              <div className="lg:p-6 flex flex-col h-full mb-12 lg:mb-0">
+                <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
+                  Skills
+                </h2>
+                <p className="max-w-96 mt-4 text-gray-700 dark:text-neutral-400 font-medium">
+                  Plus continuous learning 💪
+                </p>
+              </div>
+            </GridItem>
+            <GridItem className="lg:col-span-2">
+              <div className="p-6 flex flex-col h-full">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                  Frameworks &amp; Libraries
+                </h3>
+                <div className="relative [@media(hover:hover)]:py-12">
+                  <AnimatedTooltips
+                    items={techStack}
+                    className="justify-center w-full gap-3 flex-wrap mt-auto"
+                    iconClassName="border dark:shadow-inset dark:opacity-90 dark:hover:opacity-100 transition duration-300 p-2 rounded-full w-16 h-16 flex items-center justify-center"
+                    animateIcon={true}
+                  />
+                  <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-y-1/2 m-auto z-40 bg-gradient-to-b from-transparent via-primary to-transparent animate-move duration-[4800ms] pointer-events-none delay-[0.8] hidden sm:block [@media(hover:hover)]:flex [@media(hover:none)]:hidden">
+                    <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+                      {/* <Sparkles /> */}
+                    </div>
+                  </div>
+                  <LogoList
+                    items={techStack}
+                    className="max-w-40 sm:max-w-full sm:columns-2 sm:px-5 mx-auto"
+                  />
+                  <div className="absolute inset-0 w-full h-full bg-primary/10 dark:bg-[rgba(40,40,40,0.30)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)] pointer-events-none" />
+                </div>
+              </div>
+            </GridItem>
+          </ul>
+          <ul className="grid gap-3 sm:grid-cols-3">
+            <GridItem>
+              <div className="p-6 flex flex-col h-full">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                  Programming Languages
+                </h3>
+                <AnimatedTooltips
+                  items={languages}
+                  className="flex justify-center w-full gap-3 flex-wrap mt-auto"
+                  iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
+                />
+                <LogoList
+                  items={languages}
+                  className="max-w-40 w-full mx-auto"
+                />
+              </div>
+            </GridItem>
+            <GridItem>
+              <div className="p-6 flex flex-col h-full">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                  Design &amp; UI/UX Tools
+                </h3>
+                <AnimatedTooltips
+                  items={designTools}
+                  className="justify-center w-full gap-3 flex-wrap mt-auto"
+                  iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
+                />
+                <LogoList
+                  items={designTools}
+                  className="max-w-40 w-full mx-auto"
+                />
+              </div>
+            </GridItem>
+            <GridItem>
+              <div className="p-6 flex flex-col h-full">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                  Development &amp; Version Control
+                </h3>
+
+                <AnimatedTooltips
+                  items={devTools}
+                  className="justify-center w-full gap-3 flex-wrap mt-auto"
+                  iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
+                />
+                <LogoList
+                  items={devTools}
+                  className="max-w-40 w-full mx-auto"
+                />
+              </div>
+            </GridItem>
+          </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+interface GridItemProps {
+  className?: string;
+  glowClassName?: string;
+  icon?: React.ReactNode;
+  title?: string;
+  description?: React.ReactNode;
+  children?: ReactNode;
+}
+
+const GridItem = ({ className, glowClassName, children }: GridItemProps) => {
+  return (
+    <li className={`list-none ${className}`}>
+      <div className="relative h-full rounded-xl border dark:border-white/10 dark:bg-black/10 group lg:col-span-2 shadow-box-inset">
+        <GlowingEffect
+          blur={0}
+          borderWidth={1}
+          spread={80}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+          className={glowClassName}
+        />
+        {children}
+      </div>
+    </li>
+  );
+};
+
+/* Show for devices that have hover */
+const AnimatedTooltips = ({
+  items,
+  className,
+  iconClassName,
+  tooltipClassName,
+  animateIcon,
+}: {
+  items: {
+    id: number;
+    name: string;
+    icon: React.ReactNode;
+  }[];
+  className?: string;
+  iconClassName?: string;
+  tooltipClassName?: string;
+  animateIcon?: boolean;
+}) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div
+      className={cn(
+        "[@media(hover:hover)]:flex [@media(hover:none)]:hidden",
+        className
+      )}
+    >
+      {items.map((item, idx) => (
+        <div
+          className={cn(tooltipClassName, "relative")}
+          key={item.name}
+          onMouseEnter={() => setHoveredIndex(item.id)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <AnimatePresence mode="popLayout">
+            {hoveredIndex === item.id && (
+              <motion.div
+                // initial={{ opacity: 0, y: 20, scale: 0.6 }}
+                // animate={{
+                //   opacity: 1,
+                //   y: 0,
+                //   scale: 1,
+                //   transition: {
+                //     type: "spring",
+                //     stiffness: 260,
+                //     damping: 10,
+                //   },
+                // }}
+                // exit={{ opacity: 0, y: 20, scale: 0.6 }}
+                // style={{
+                //   whiteSpace: "nowrap",
+                // }}
+                className="bg-black px-2 py-1 rounded-lg w-auto absolute -top-8 left-1/2 -translate-x-1/2"
+              >
+                <div className="font-medium text-white relative z-30 text-xs">
+                  {item.name}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div
+            className={cn(
+              iconClassName,
+              `${animateIcon && `circle-` + `${idx + 1}`}`
+            )}
+          >
+            {item?.icon}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+/* Show for devices that have no hover */
+const LogoList = ({
+  items,
+  className,
+}: {
+  items: {
+    id: number;
+    name: string;
+    icon: React.ReactNode;
+  }[];
+  className?: string;
+}) => {
+  return (
+    <ul
+      className={cn(
+        "[@media(hover:hover)]:hidden [@media(hover:none)]:block",
+        className
+      )}
+    >
+      {items?.map((item) => (
+        <li key={item?.id} className="inline-flex items-center w-full">
+          <span className="dark:shadow-inset transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center scale-75">
+            {item?.icon}
+          </span>
+          <span className="text-gray-700 dark:text-neutral-400 font-medium text-sm">
+            {item?.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+// const Sparkles = () => {
+//   const randomMove = () => Math.random() * 2 - 1;
+//   const randomOpacity = () => Math.random();
+//   const random = () => Math.random();
+
+//   return (
+//     <div className="absolute inset-0">
+//       {[...Array(12)].map((_, i) => (
+//         <motion.span
+//           key={`star-${i}`}
+//           animate={{
+//             top: `calc(${random() * 100}% + ${randomMove()}px)`,
+//             left: `calc(${random() * 100}% + ${randomMove()}px)`,
+//             opacity: randomOpacity(),
+//             scale: [1, 1.2, 0],
+//           }}
+//           transition={{
+//             duration: random() * 2 + 4,
+//             repeat: Infinity,
+//             ease: "linear",
+//           }}
+//           style={{
+//             position: "absolute",
+//             top: `${random() * 100}%`,
+//             left: `${random() * 100}%`,
+//             width: `2px`,
+//             height: `2px`,
+//             borderRadius: "50%",
+//             zIndex: 1,
+//           }}
+//           className="inline-block bg-primary dark:bg-white"
+//         ></motion.span>
+//       ))}
+//     </div>
+//   );
+// };
+
+const techStack = [
+  {
+    id: 1,
+    name: "ReactJS",
+    icon: <StackIcon className="w-10 h-10" name="reactjs" />,
+  },
+  {
+    id: 2,
+    name: "Next.js",
+    icon: <StackIcon className="w-10 h-10" name="nextjs2" />,
+  },
+  {
+    id: 3,
+    name: "Tailwind CSS",
+    icon: <StackIcon className="w-10 h-10" name="tailwindcss" />,
+  },
+  {
+    id: 4,
+    name: "Shadcn UI",
+    icon: <StackIcon className="w-10 h-10 dark:invert" name="shadcnui" />,
+  },
+  {
+    id: 5,
+    name: "Gatsby",
+    icon: <StackIcon className="w-10 h-10" name="gatsby" />,
+  },
+  {
+    id: 6,
+    name: "Boostrap",
+    icon: <StackIcon className="w-10 h-10" name="bootstrap5" />,
+  },
+];
+
+const languages = [
+  {
+    id: 1,
+    name: "Typescript",
+    icon: <StackIcon className="w-10 h-10" name="typescript" />,
+  },
+  {
+    id: 2,
+    name: "Javascript",
+    icon: <StackIcon className="w-10 h-10" name="js" />,
+  },
+  {
+    id: 3,
+    name: "HTML5",
+    icon: <StackIcon className="w-10 h-10" name="html5" />,
+  },
+  {
+    id: 4,
+    name: "CSS3",
+    icon: <StackIcon className="w-10 h-10" name="css3" />,
+  },
+];
+
+const designTools = [
+  {
+    id: 1,
+    name: "Figma",
+    icon: <StackIcon className="w-10 h-10" name="figma" />,
+  },
+  {
+    id: 2,
+    name: "Photoshop",
+    icon: <StackIcon className="w-10 h-10" name="ps" />,
+  },
+];
+
+const devTools = [
+  {
+    id: 1,
+    name: "Git",
+    icon: <StackIcon className="w-10 h-10" name="git" />,
+  },
+  {
+    id: 2,
+    name: "GitHub",
+    icon: <StackIcon className="w-10 h-10 dark:invert" name="github" />,
+  },
+  {
+    id: 3,
+    name: "VSCode",
+    icon: <StackIcon className="w-10 h-10" name="vscode" />,
+  },
+];
