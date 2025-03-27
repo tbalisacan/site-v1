@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export function Experience() {
   const scrollRef = useRef(null);
   return (
-    <section className="my-32 md:my-48">
+    <section className="my-32 md:my-48 scroll-mt-28" id="experience">
       <motion.div viewport={{ root: scrollRef }} transition={{ duration: 5 }}>
         <Container className="relative z-10">
           <div className="max-w-5xl mx-auto mb-12 ">

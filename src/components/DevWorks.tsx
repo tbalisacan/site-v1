@@ -9,7 +9,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 export function DevWorks() {
   return (
-    <section className="my-32 md:my-48">
+    <section className="my-32 md:my-48 scroll-mt-28" id="works">
       <Container>
         <div className="max-w-5xl mx-auto mb-12">
           <motion.h2

@@ -8,7 +8,7 @@ import { ImBehance, ImGithub, ImLinkedin } from "react-icons/im";
 
 export function Contact() {
   return (
-    <section className="pb-12 relative">
+    <section className="pb-12 relative scroll-mt-28" id="contact">
       <Container className="relative z-20">
         <div className="flex flex-col space-y-8">
           <motion.h2

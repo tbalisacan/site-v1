@@ -12,39 +12,21 @@ import ThemeSwitch from "../ThemeSwitch";
 import Image from "next/image";
 
 export const FloatingNav = () => {
-  // const { scrollYProgress } = useScroll();
-
   const [scrolled, setScrolled] = useState(0);
-
-  // useMotionValueEvent(scrollYProgress, "change", (current) => {
-  //   // Check if current is not undefined and is a number
-  //   if (typeof current === "number") {
-  //     let direction = current! - scrollYProgress.getPrevious()!;
-
-  //     if (scrollYProgress.get() < 0.05) {
-  //       setScrolled(false);
-  //     } else {
-  //       if (direction < 0) {
-  //         setScrolled(true);
-  //       } else {
-  //         setScrolled(false);
-  //       }
-  //     }
-  //   }
-  // });
 
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // console.log("Page scroll: ", latest);
     setScrolled(latest);
   });
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <AnimatePresence mode="wait">
       <div className={cn("w-full fixed top-4 z-[5000]")}>
         <motion.div
-          className="max-w-6xl mx-auto px-4 relative"
+          className="max-w-6xl mx-auto px-2 relative"
           initial={{
             maxWidth: "72rem",
           }}
@@ -55,7 +37,7 @@ export const FloatingNav = () => {
             duration: 0.3,
           }}
         >
-          <div className="flex rounded-lg p-2 pl-4 md:pl-8 gap-7 items-center relative">
+          <div className="flex flex-wrap rounded-lg p-2 pl-3 md:pl-4 space-x-7 items-center relative">
             <Link
               href="/"
               className={cn(
@@ -71,7 +53,9 @@ export const FloatingNav = () => {
                   className="object-bottom"
                 />
               </span>
-              <span className="text-sm ml-1">T. Balisacan</span>
+              <span className="text-sm ml-1 hidden [@media(min-width:280px)]:block">
+                T. Balisacan
+              </span>
             </Link>
             <div className="hidden md:flex gap-7 items-center">
               {navItems.map(
@@ -88,21 +72,50 @@ export const FloatingNav = () => {
                 )
               )}
             </div>
-            {/* <div className="ml-auto">
-              <Variants />
-            </div> */}
-            <div className="hidden md:flex gap-4 items-center ml-auto z-10 relative">
+
+            <div className="flex space-x-4 items-center ml-auto mr-2 md:mr-0 z-10 relative">
               <ThemeSwitch />
 
-              <button className="font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
+              <div className="flex md:hidden mr-0">
+                <MenuToggle toggle={() => setIsOpen(!isOpen)} open={isOpen} />
+              </div>
+
+              <button className="hidden md:flex  font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
                 <span>Download CV</span>
               </button>
             </div>
+
+            {/* mobile menu */}
+            <motion.div
+              initial={false}
+              animate={isOpen ? "open" : "closed"}
+              className="relative z-10 w-full flex-none"
+            >
+              <motion.div variants={navVariants} className="overflow-hidden">
+                <ul className="flex flex-col space-y-4 items-center py-4 mt-1.5 border-t dark:border-t-white/10">
+                  {navItems?.map((item, i) => (
+                    <li key={i} onClick={() => setIsOpen(false)}>
+                      <a
+                        href={item?.link}
+                        className="font-heading text-lg font-medium"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                  <button className="font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
+                    <span>Download CV</span>
+                  </button>
+                </ul>
+              </motion.div>
+            </motion.div>
+
+            {/* background */}
             <motion.div
               className="absolute w-full h-full inset-0 bg-background/80 backdrop-blur border rounded-lg dark:border-white/10"
               initial={{ opacity: "0" }}
               animate={{
-                opacity: scrolled > 50 ? "1" : "0",
+                opacity: scrolled > 50 || isOpen ? "1" : "0",
               }}
               transition={{
                 duration: 0.3,
@@ -117,15 +130,95 @@ export const FloatingNav = () => {
 
 const navItems = [
   {
+    name: "Skills",
+    link: "/#skills",
+  },
+  {
     name: "Experience",
-    link: "/",
+    link: "/#experience",
   },
   {
     name: "Works",
-    link: "/",
+    link: "/#works",
   },
   {
     name: "Contact",
-    link: "/",
+    link: "/#contact",
   },
 ];
+
+const MenuToggle = ({
+  toggle,
+  open,
+}: {
+  toggle: () => void;
+  open: boolean;
+}) => (
+  <button onClick={toggle}>
+    <svg
+      stroke="currentColor"
+      fill="none"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      className="text-xl"
+    >
+      <motion.line
+        x1={3}
+        y1={12}
+        x2={21}
+        y2={12}
+        initial={{
+          opacity: 1,
+        }}
+        animate={{
+          opacity: !open ? 1 : 0,
+        }}
+      />
+      <motion.line
+        x1={3}
+        y1={6}
+        x2={21}
+        y2={6}
+        initial={{
+          rotate: 0,
+        }}
+        animate={{
+          rotate: !open ? 0 : 45,
+          // origin: "5px 9px",
+          originX: "5px",
+          originY: "9px",
+        }}
+      />
+      <motion.line
+        x1={3}
+        y1={18}
+        x2={21}
+        y2={18}
+        initial={{
+          rotate: 0,
+        }}
+        animate={{
+          rotate: !open ? 0 : -45,
+          originX: "5px",
+          originY: "14px",
+        }}
+      />
+    </svg>
+  </button>
+);
+
+const navVariants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    height: "auto",
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    height: "0",
+  },
+};

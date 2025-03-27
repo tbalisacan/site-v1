@@ -137,11 +137,6 @@ export const ProductCard = ({
       style={{
         x: translate,
       }}
-      whileHover={
-        {
-          // y: -20,
-        }
-      }
       key={product.title}
       className="group/product w-1/2 sm:w-1/3 relative flex-shrink-0"
     >
@@ -150,23 +145,29 @@ export const ProductCard = ({
           <CardItem translateZ="50" className="w-full relative">
             <div
               className={cn(
-                "absolute w-full h-24 left-0 bottom-0 flex items-end justify-center z-10 pb-4 bg-gradient-to-b from-neutral-900/0 to-neutral-900/90 group-hover:opacity-100  transition duration-300 group/cta",
+                "absolute w-full h-24 left-0 bottom-0 flex items-end justify-center z-10 pb-4 bg-gradient-to-b from-neutral-900/0 to-neutral-900/90 group-hover:opacity-100  transition duration-300 group/cta rounded-lg",
                 "[@media(hover:hover)]:opacity-0"
               )}
             >
               <a
                 className={cn(
-                  "font-bold text-primary text-xs flex gap-1 items-center bg-white rounded-md px-4 py-2 group-hover/card:translate-y-0 group-hover/card:opacity-100 translate-y-2 transition delay-200",
+                  "font-bold text-primary text-xs flex gap-1 items-center bg-white rounded-md px-4 py-2 group-hover/card:translate-y-0 group-hover/card:opacity-100 translate-y-2 transition",
                   "[@media(hover:none)]:hidden"
                 )}
+                href={product?.link}
+                target="_blank"
+                aria-label={`Behance link to ${product?.title} design`}
               >
                 View Design <FiExternalLink />
               </a>
               <a
                 className={cn(
-                  "text-white text-lg",
+                  "text-white text-xl",
                   "[@media(hover:none)]:block"
                 )}
+                href={product?.link}
+                target="_blank"
+                aria-label={`Behance link to ${product?.title} design`}
               >
                 <FiExternalLink />
               </a>

@@ -71,7 +71,7 @@ export function Skills() {
   }, []);
 
   return (
-    <section className="-mt-40 mb-32 relative z-10">
+    <section className="-mt-40 mb-32 relative z-10 scroll-mt-28" id="skills">
       <Container>
         <div className="grid grid-cols-1 gap-3">
           <ul className="grid gap-3 lg:grid-cols-3">
