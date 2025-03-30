@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
 import { FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
 
 export function DevWorks() {
   return (
@@ -29,7 +30,7 @@ export function DevWorks() {
           >
             Recent Projects
           </motion.h2>
-          <p className="text-gray-700 dark:text-neutral-400 font-medium max-w-5xl mx-auto mt-4">
+          <p className="font-medium max-w-5xl mx-auto mt-4">
             A few things built recently.
           </p>
         </div>
@@ -72,9 +73,7 @@ export function DevWorks() {
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-heading">
                     {item?.title}
                   </h3>
-                  <p className="text-sm text-gray-700 dark:text-neutral-400 font-medium">
-                    {item?.desc}
-                  </p>
+                  <p className="text-sm font-medium">{item?.desc}</p>
                   <div className="flex justify-between items-center mt-auto pt-4 w-full space-x-6">
                     <p className="text-xs text-gray-800 dark:text-neutral-400 truncate">
                       <span className="font-bold">Roles:</span>{" "}
@@ -85,9 +84,12 @@ export function DevWorks() {
                         </span>
                       ))}
                     </p>
-                    <button className="font-bold text-primary text-sm flex gap-1 items-center font-heading ml-auto flex-none">
+                    <Link
+                      href={item?.link}
+                      className="font-bold text-primary text-sm flex gap-1 items-center font-heading ml-auto flex-none"
+                    >
                       {item?.cta} <FiArrowRight />
-                    </button>
+                    </Link>
                   </div>
                 </CardItem>
               </CardBody>
@@ -108,6 +110,7 @@ export const devPortfolio = [
     roles: ["Design", "Development"],
     cta: "Project Info",
     bgColor: "#419eb2",
+    link: "/",
   },
   {
     title: "Anthology Configurator",
@@ -116,5 +119,6 @@ export const devPortfolio = [
     roles: ["Development"],
     cta: "Project Info",
     bgColor: "#6f5958",
+    link: "/project/anthology-configurator",
   },
 ];

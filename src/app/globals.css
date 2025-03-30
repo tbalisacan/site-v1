@@ -59,7 +59,8 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.14 0 0);
+  /* --foreground: oklch(0.14 0 0); */
+  --foreground: var(--color-gray-700);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -96,7 +97,8 @@
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  /* --foreground: oklch(0.985 0 0); */
+  --foreground: var(--color-neutral-400);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);

@@ -83,7 +83,7 @@ export function Skills() {
                 <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
                   Skills
                 </h2>
-                <p className="max-w-96 mt-4 text-gray-700 dark:text-neutral-400 font-medium">
+                <p className="max-w-96 mt-4  font-medium">
                   Plus continuous learning 💪
                 </p>
               </div>
@@ -237,24 +237,21 @@ const AnimatedTooltips = ({
           <AnimatePresence mode="popLayout">
             {hoveredIndex === item.id && (
               <motion.div
-                // initial={{ opacity: 0, y: 20, scale: 0.6 }}
-                // animate={{
-                //   opacity: 1,
-                //   y: 0,
-                //   scale: 1,
-                //   transition: {
-                //     type: "spring",
-                //     stiffness: 260,
-                //     damping: 10,
-                //   },
-                // }}
-                // exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                // style={{
-                //   whiteSpace: "nowrap",
-                // }}
+                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 10,
+                  },
+                }}
+                exit={{ opacity: 0, y: 10, scale: 0.9 }}
                 className="bg-black px-2 py-1 rounded-lg w-auto absolute -top-8 left-1/2 -translate-x-1/2"
               >
-                <div className="font-medium text-white relative z-30 text-xs">
+                <div className="font-medium text-white relative z-30 text-xs whitespace-nowrap">
                   {item.name}
                 </div>
               </motion.div>
@@ -298,9 +295,7 @@ const LogoList = ({
           <span className="dark:shadow-inset transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center scale-75">
             {item?.icon}
           </span>
-          <span className="text-gray-700 dark:text-neutral-400 font-medium text-sm">
-            {item?.name}
-          </span>
+          <span className=" font-medium text-sm">{item?.name}</span>
         </li>
       ))}
     </ul>

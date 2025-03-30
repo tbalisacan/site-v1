@@ -113,7 +113,7 @@ const Header = () => {
       <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
         Previous Design Work
       </h2>
-      <p className="text-gray-700 dark:text-neutral-400 font-medium max-w-5xl mx-auto mt-4">
+      <p className="font-medium max-w-5xl mx-auto mt-4">
         An assortment of clean and functional website designs.
       </p>
     </Container>
@@ -162,7 +162,7 @@ export const ProductCard = ({
               </a>
               <a
                 className={cn(
-                  "text-white text-xl",
+                  "text-white text-xl hidden",
                   "[@media(hover:none)]:block"
                 )}
                 href={product?.link}

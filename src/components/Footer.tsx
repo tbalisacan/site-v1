@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ImBehance, ImGithub, ImLinkedin } from "react-icons/im";
 
-export function Contact() {
+export function Footer() {
   return (
     <section className="pb-12 relative scroll-mt-28" id="contact">
       <Container className="relative z-20">
@@ -30,13 +30,13 @@ export function Contact() {
           </motion.h2>
           <div className=" flex flex-col space-y-1 text-center">
             <a
-              className="text-lg font-medium font-heading opacity-50 hover:opacity-100 transition"
+              className="text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
               href="mailto:tessa.balisacan@gmail.com"
             >
               tessa.balisacan@gmail.com
             </a>
             <a
-              className="text-lg font-medium font-heading opacity-50 hover:opacity-100 transition"
+              className="text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
               href="tel:+63-977-143-8397"
             >
               +63-977-143-8397
@@ -47,13 +47,25 @@ export function Contact() {
               </button>
             </div>
             <div className="flex space-x-2 justify-center text-xl items-center my-4">
-              <a className="rounded-full shadow-inset p-3 flex-none">
+              <a
+                className="rounded-full dark:shadow-inset p-3 flex-none hover:-translate-y-1 transition duration-300 border text-black dark:text-white dark:opacity-70 hover:opacity-100"
+                href="https://github.com/tbalisacan"
+                target="_blank"
+              >
                 <ImGithub />
               </a>
-              <a className="rounded-full shadow-inset p-3 flex-none">
+              <a
+                className="rounded-full dark:shadow-inset p-3 flex-none hover:-translate-y-1 transition duration-300 border text-black dark:text-white dark:opacity-70 hover:opacity-100"
+                href="https://www.behance.net/tbalisacan"
+                target="_blank"
+              >
                 <ImBehance />
               </a>
-              <a className="rounded-full shadow-inset p-3 flex-none">
+              <a
+                className="rounded-full dark:shadow-inset p-3 flex-none hover:-translate-y-1 transition duration-300 border text-black dark:text-white dark:opacity-70 hover:opacity-100"
+                href="https://www.linkedin.com/in/tbalisacan/"
+                target="_blank"
+              >
                 <ImLinkedin />
               </a>
             </div>

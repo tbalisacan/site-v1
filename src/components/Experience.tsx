@@ -32,7 +32,7 @@ export function Experience() {
             >
               Work Experience
             </motion.h2>
-            <p className="text-gray-700 dark:text-neutral-400 font-medium mx-auto mt-4">
+            <p className="font-medium mx-auto mt-4">
               Organizations I&apos;ve worked with.
             </p>
           </div>
@@ -83,10 +83,8 @@ export function Experience() {
                   <h3 className="text-xl leading-tight sm:text-2xl font-bold font-heading text-gray-800 dark:text-gray-300">
                     {job?.position}
                   </h3>
-                  <p className="text-sm mb-4 text-gray-700 dark:text-neutral-400 font-medium">
-                    {job?.duration}
-                  </p>
-                  <ul className="text-sm space-y-2 leading-loose text-gray-700 dark:text-neutral-400 font-medium">
+                  <p className="text-sm mb-4  font-medium">{job?.duration}</p>
+                  <ul className="text-sm space-y-2 leading-loose  font-medium">
                     {job?.duties?.map((duty, i) => (
                       <li key={i} className="flex gap-2">
                         <span
