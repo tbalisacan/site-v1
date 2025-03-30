@@ -1,10 +1,5 @@
-import { Skills } from "@/components/Skills";
-import { DesignWorks } from "@/components/DesignWorks";
-import { DevWorks } from "@/components/DevWorks";
-import { Experience } from "@/components/Experience";
-import { HeroSpotlight } from "@/components/HeroSpotlight";
 import { Container } from "@/components/ui/container";
-import { FiCheck } from "react-icons/fi";
+import { FiChevronRight, FiCheck } from "react-icons/fi";
 import Image from "next/image";
 
 export default function Home() {
@@ -59,7 +54,7 @@ export default function Home() {
                 <ul className="flex flex-col space-y-2">
                   <li className="flex gap-2">
                     <span aria-hidden className="pt-1 text-primary flex-none">
-                      <FiCheck />
+                      <FiChevronRight />
                     </span>{" "}
                     <span>
                       <span className="font-bold">WebriQ</span>
@@ -71,7 +66,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-2">
                     <span aria-hidden className="pt-1 text-primary flex-none">
-                      <FiCheck />
+                      <FiChevronRight />
                     </span>{" "}
                     <span>
                       <span className="font-bold">Belwith Marketing</span>
@@ -91,7 +86,7 @@ export default function Home() {
                 className="rounded-xl border dark:border-white/10 dark:bg-black/10 group shadow-box-inset p-7"
                 key={i}
               >
-                <div className="[@media(hover:hover)]:opacity-70 hover:opacity-100 transition aspect-[80/57] relative">
+                <div className="duration:300 transition aspect-[80/57] relative">
                   <Image
                     src={item?.path}
                     fill
@@ -102,10 +97,13 @@ export default function Home() {
                 </div>
               </div>
             ))}
-            <div className="rounded-xl border dark:border-white/10 dark:bg-black/10 group shadow-box-inset p-7 grid grid-cols-4 gap-7">
+            <div className="rounded-xl border dark:border-white/10 dark:bg-black/10 group shadow-box-inset p-7 grid grid-cols-1 sm:grid-cols-4 gap-7">
               {mobileImages?.map((item, i) => (
-                <div className="rounded-xl overflow-hidden" key={i}>
-                  <div className="[@media(hover:hover)]:opacity-70 hover:opacity-100 transition aspect-[390/777] relative">
+                <div
+                  className="rounded-xl overflow-hidden w-full max-w-3xs mx-auto sm:max-w-full"
+                  key={i}
+                >
+                  <div className="duration:300 transition aspect-[390/777] relative">
                     <Image
                       src={item?.path}
                       fill

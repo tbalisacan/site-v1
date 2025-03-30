@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Container } from "@/components/ui/container";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { FiCheck } from "react-icons/fi";
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 export function Experience() {
   const scrollRef = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <section className="my-32 md:my-48 scroll-mt-28" id="experience">
       <motion.div viewport={{ root: scrollRef }} transition={{ duration: 5 }}>
@@ -46,32 +47,55 @@ export function Experience() {
                 // aria-orientation="vertical"
                 className={cn(
                   "flex space-x-4 overflow-scroll pb-2 px-1",
-                  "md:col-span-1 md:flex-col md:w-full md:h-fit md:pb-0 md:space-y-2 md:space-x-0 md:px-0"
+                  "md:col-span-1 md:flex-col md:w-full md:h-fit md:pb-0 md:space-x-0 md:px-0"
                 )}
                 // className="flex gap-2 overflow-scroll"
               >
-                {jobExperience?.map((job) => (
-                  <TabsTrigger
+                {jobExperience?.map((job, idx) => (
+                  <div
+                    className="pb-2 relative"
                     key={job?.company}
-                    value={job?.company}
-                    className={cn(
-                      "inline-flex items-center gap-x-2 flex-none",
-                      "md:w-full md:flex-auto"
-                    )}
+                    onMouseEnter={() => setHoveredIndex(idx)}
+                    onMouseLeave={() => setHoveredIndex(null)}
                   >
-                    {job?.logo && (
-                      <span className="rounded-full shadow-inset p-1.5 flex-none">
-                        <Image
-                          src={job?.logo}
-                          height="20"
-                          width="20"
-                          alt="logo"
-                          className="rounded-full"
-                        />
-                      </span>
-                    )}
-                    {job?.company}
-                  </TabsTrigger>
+                    <TabsTrigger
+                      value={job?.company}
+                      className={cn(
+                        "inline-flex items-center gap-x-2 flex-none relative z-10",
+                        "md:w-full md:flex-auto"
+                      )}
+                    >
+                      {job?.logo && (
+                        <span className="rounded-full shadow-inset p-1.5 flex-none">
+                          <Image
+                            src={job?.logo}
+                            height="20"
+                            width="20"
+                            alt="logo"
+                            className="rounded-full"
+                          />
+                        </span>
+                      )}
+                      {job?.company}
+                    </TabsTrigger>
+                    <AnimatePresence>
+                      {hoveredIndex === idx && (
+                        <motion.span
+                          className="absolute inset-x-0 top-0 w-full h-[calc(100%-0.5rem-1px)] rounded-md border"
+                          layoutId="hoverBackground"
+                          initial={{ opacity: 1 }}
+                          animate={{
+                            opacity: 1,
+                            transition: { duration: 0.15 },
+                          }}
+                          exit={{
+                            opacity: 0,
+                            transition: { duration: 0.15, delay: 0.2 },
+                          }}
+                        ></motion.span>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ))}
               </TabsList>
               {jobExperience?.map((job) => (

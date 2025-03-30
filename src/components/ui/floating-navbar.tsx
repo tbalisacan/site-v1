@@ -13,9 +13,7 @@ import Image from "next/image";
 
 export const FloatingNav = () => {
   const [scrolled, setScrolled] = useState(0);
-
   const { scrollY } = useScroll();
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest);
   });
@@ -41,7 +39,7 @@ export const FloatingNav = () => {
             <Link
               href="/"
               className={cn(
-                "relative z-10 dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 font-medium font-heading text-lg"
+                "relative z-10 dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 font-bold font-heading transition"
               )}
             >
               <span className="w-7 h-7 relative rounded-full bg-primary/50 pt-0.5 overflow-hidden">
@@ -53,7 +51,7 @@ export const FloatingNav = () => {
                   className="object-bottom"
                 />
               </span>
-              <span className="text-sm ml-1 hidden [@media(min-width:280px)]:block">
+              <span className="text-sm ml-1 -mt-0.5 hidden [@media(min-width:280px)]:block">
                 T. Balisacan
               </span>
             </Link>
@@ -64,7 +62,7 @@ export const FloatingNav = () => {
                     key={`link=${idx}`}
                     href={navItem.link}
                     className={cn(
-                      "relative z-10 dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 font-medium"
+                      "relative z-10 items-center flex space-x-1 font-semibold hover:text-gray-800 dark:hover:text-gray-300 transition"
                     )}
                   >
                     <span className="text-sm">{navItem.name}</span>
