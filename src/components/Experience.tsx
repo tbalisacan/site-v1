@@ -15,28 +15,28 @@ export function Experience() {
     <section className="my-32 md:my-48 scroll-mt-28" id="experience">
       <motion.div viewport={{ root: scrollRef }} transition={{ duration: 5 }}>
         <Container className="relative z-10">
-          <div className="max-w-5xl mx-auto mb-12 ">
-            <motion.h2
-              // initial={{
-              //   opacity: 0,
-              //   y: 20,
-              // }}
-              // animate={{
-              //   opacity: 1,
-              //   y: [20, -5, 0],
-              // }}
-              // transition={{
-              //   duration: 0.5,
-              //   ease: [0.4, 0.0, 0.2, 1],
-              // }}
-              className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading"
-            >
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 50,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: [20, -5, 0],
+            }}
+            transition={{
+              duration: 1,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
+            className="max-w-5xl mx-auto mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
               Work Experience
-            </motion.h2>
+            </h2>
             <p className="font-medium mx-auto mt-4">
               Organizations I&apos;ve worked with.
             </p>
-          </div>
+          </motion.div>
           <div className="mx-auto max-w-3xl">
             <Tabs
               defaultValue={jobExperience[0]?.company}

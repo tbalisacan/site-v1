@@ -78,9 +78,12 @@ export const FloatingNav = () => {
                 <MenuToggle toggle={() => setIsOpen(!isOpen)} open={isOpen} />
               </div>
 
-              <button className="hidden md:flex  font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
+              <a
+                href="/"
+                className="hidden md:flex  font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+              >
                 <span>Download CV</span>
-              </button>
+              </a>
             </div>
 
             {/* mobile menu */}
@@ -101,9 +104,14 @@ export const FloatingNav = () => {
                       </a>
                     </li>
                   ))}
-                  <button className="font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
-                    <span>Download CV</span>
-                  </button>
+                  <li>
+                    <a
+                      href="/"
+                      className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                    >
+                      <span>Download CV</span>
+                    </a>
+                  </li>
                 </ul>
               </motion.div>
             </motion.div>
@@ -152,7 +160,7 @@ const MenuToggle = ({
   toggle: () => void;
   open: boolean;
 }) => (
-  <button onClick={toggle}>
+  <button onClick={toggle} aria-label="Menu">
     <svg
       stroke="currentColor"
       fill="none"
@@ -187,7 +195,6 @@ const MenuToggle = ({
         }}
         animate={{
           rotate: !open ? 0 : 45,
-          // origin: "5px 9px",
           originX: "5px",
           originY: "9px",
         }}

@@ -83,24 +83,37 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-6 mt-24">
             {images?.map((item, i) => (
               <div
-                className="rounded-xl border dark:border-white/10 dark:bg-black/10 group shadow-box-inset p-7"
+                className="rounded-xl border dark:border-white/10 bg-muted dark:bg-black/10 group shadow-box-inset p-7"
                 key={i}
               >
-                <div className="duration:300 transition aspect-[80/57] relative">
-                  <Image
-                    src={item?.path}
-                    fill
-                    className="object-cover "
-                    alt={item?.alt ?? "thumbnail"}
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                  />
+                <div className="border dark:border-white/10 rounded-lg overflow-hidden">
+                  <div
+                    className="px-3 py-3 w-full bg-foreground dark:bg-foreground/20 flex space-x-1"
+                    aria-hidden
+                  >
+                    {new Array(3).fill(undefined).map((_, i) => (
+                      <span
+                        key={i}
+                        className="w-2 h-2 rounded-full border dark:border-white/20"
+                      />
+                    ))}
+                  </div>
+                  <div className="duration:300 transition aspect-[80/57] relative">
+                    <Image
+                      src={item?.path}
+                      fill
+                      className="object-cover "
+                      alt={item?.alt ?? "thumbnail"}
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                    />
+                  </div>
                 </div>
               </div>
             ))}
             <div className="rounded-xl border dark:border-white/10 dark:bg-black/10 group shadow-box-inset p-7 grid grid-cols-1 sm:grid-cols-4 gap-7">
               {mobileImages?.map((item, i) => (
                 <div
-                  className="rounded-xl overflow-hidden w-full max-w-3xs mx-auto sm:max-w-full"
+                  className="rounded-xl overflow-hidden w-full max-w-3xs mx-auto sm:max-w-full border-4 dark:border-foreground/10 border-foreground/20"
                   key={i}
                 >
                   <div className="duration:300 transition aspect-[390/777] relative">

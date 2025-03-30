@@ -53,9 +53,12 @@ export function HeroSpotlight() {
               ease: [0.4, 0.0, 0.2, 1],
             }}
           >
-            <button className="font-heading border text-lg font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300">
+            <a
+              href="/"
+              className="font-heading border text-lg font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+            >
               <span>Download CV</span>
-            </button>
+            </a>
           </motion.div>
         </div>
       </Container>
