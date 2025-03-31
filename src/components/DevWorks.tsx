@@ -7,6 +7,8 @@ import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
 import { FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
+import { projects } from "@/lib/constants";
+import { Project } from "@/types";
 
 export function DevWorks() {
   return (
@@ -35,66 +37,66 @@ export function DevWorks() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12">
-          {devPortfolio?.map((item, index) => (
-            <CardContainer
-              key={index}
-              className="h-full [&>div]:h-full [&>div]:w-full [&>div]:max-w-92 sm:[&>div]:max-w-full"
-            >
-              <CardBody className="group/card relative rounded-xl border dark:border-white/10 dark:bg-black/10 shadow-box-inset group w-full flex flex-col h-auto p-4 sm:p-6">
-                {/* <GlowingEffect
-                  blur={0}
-                  borderWidth={1}
-                  spread={80}
-                  glow={true}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                /> */}
-                <CardItem translateZ="50" className="w-full">
-                  <div
-                    className="w-full rounded-lg overflow-hidden bg-gradient-to-b from-zinc-800/0 to-zinc-800/20 px-7 pt-7 g:px-10 lg:pt-10"
-                    style={{ backgroundColor: item?.bgColor }}
-                  >
-                    <div className="w-full aspect-video rounded-xl rounded-b-none overflow-hidden relative transition duration-500 border-4 border-b-0 border-white/20">
-                      <Image
-                        src={item?.imageSrc}
-                        fill
-                        className="object-cover "
-                        alt="thumbnail"
-                        sizes="(min-width: 640px) 50vw, 100vw"
-                      />
-                    </div>
-                  </div>
-                </CardItem>
-                <CardItem
-                  translateZ="50"
-                  className="flex flex-col gap-y-3 pt-4 h-full md:px-4"
-                >
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-heading">
-                    {item?.title}
-                  </h3>
-                  <p className="text-sm font-medium">{item?.desc}</p>
-                  <div className="flex justify-between items-center mt-auto pt-4 w-full space-x-6">
-                    <p className="text-xs text-gray-800 dark:text-neutral-400 truncate">
-                      <span className="font-bold">Roles:</span>{" "}
-                      {item?.roles.map((role, i) => (
-                        <span key={i}>
-                          {role}
-                          {i + 1 < item?.roles?.length ? ", " : ""}
-                        </span>
-                      ))}
-                    </p>
-                    <Link
-                      href={item?.link}
-                      className="font-bold text-primary text-sm flex gap-1 items-center font-heading ml-auto flex-none"
+          {projects
+            ?.map((item: Project, index: number) => (
+              <CardContainer
+                key={index}
+                className="h-full [&>div]:h-full [&>div]:w-full [&>div]:max-w-92 sm:[&>div]:max-w-full"
+              >
+                <CardBody className="group/card relative rounded-xl border dark:border-white/10 dark:bg-black/10 shadow-box-inset group w-full flex flex-col h-auto p-4 sm:p-6">
+                  <CardItem translateZ="50" className="w-full">
+                    <div
+                      className="w-full rounded-lg overflow-hidden bg-gradient-to-b from-zinc-800/0 to-zinc-800/20 px-7 pt-7 g:px-10 lg:pt-10"
+                      style={{
+                        backgroundColor: item?.bgColor ?? "var(--background)",
+                      }}
                     >
-                      {item?.cta} <FiArrowRight />
-                    </Link>
-                  </div>
-                </CardItem>
-              </CardBody>
-            </CardContainer>
-          ))}
+                      <div className="w-full aspect-video rounded-xl rounded-b-none overflow-hidden relative transition duration-500 border-4 border-b-0 border-white/20">
+                        {item?.coverImage && (
+                          <Image
+                            src={item?.coverImage}
+                            fill
+                            className="object-cover "
+                            alt="thumbnail"
+                            sizes="(min-width: 640px) 50vw, 100vw"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </CardItem>
+                  <CardItem
+                    translateZ="50"
+                    className="flex flex-col gap-y-3 pt-4 h-full md:px-4"
+                  >
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-heading">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm font-medium">{item?.shortDesc}</p>
+                    <div className="flex justify-between items-center mt-auto pt-4 w-full space-x-6">
+                      {item?.roles && (
+                        <p className="text-xs text-gray-800 dark:text-neutral-400 truncate">
+                          <span className="font-bold">Roles:</span>{" "}
+                          {item?.roles.map((role, i) => (
+                            <span key={i}>
+                              {role?.title}
+                              {item?.roles?.length &&
+                                (i + 1 < item?.roles?.length ? ", " : "")}
+                            </span>
+                          ))}
+                        </p>
+                      )}
+                      <Link
+                        href={`/projects/${item?.slug}`}
+                        className="font-bold text-primary text-sm flex gap-1 items-center font-heading ml-auto flex-none"
+                      >
+                        Project Info <FiArrowRight />
+                      </Link>
+                    </div>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+            ))
+            ?.reverse()}
         </div>
       </Container>
     </section>
