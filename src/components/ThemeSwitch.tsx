@@ -1,9 +1,9 @@
 "use client";
 
-import { FiSun, FiMoon } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { RiMoonLine, RiSunLine } from "react-icons/ri";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
@@ -26,7 +26,7 @@ export default function ThemeSwitch() {
 
   if (resolvedTheme === "dark") {
     return (
-      <FiSun
+      <RiSunLine
         className="text-lg dark:text-white text-black"
         onClick={() => setTheme("light")}
       />
@@ -35,7 +35,7 @@ export default function ThemeSwitch() {
 
   if (resolvedTheme === "light") {
     return (
-      <FiMoon
+      <RiMoonLine
         className="text-lg dark:text-white text-black"
         onClick={() => setTheme("dark")}
       />

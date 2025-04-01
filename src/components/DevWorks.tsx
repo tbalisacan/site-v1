@@ -5,7 +5,7 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
-import { FiArrowRight } from "react-icons/fi";
+import { RiArrowRightLine } from "react-icons/ri";
 import Link from "next/link";
 import { projects } from "@/lib/constants";
 import { Project } from "@/types";
@@ -89,7 +89,7 @@ export function DevWorks() {
                         href={`/projects/${item?.slug}`}
                         className="font-bold text-primary text-sm flex gap-1 items-center font-heading ml-auto flex-none"
                       >
-                        Project Info <FiArrowRight />
+                        Project Info <RiArrowRightLine />
                       </Link>
                     </div>
                   </CardItem>
@@ -102,25 +102,3 @@ export function DevWorks() {
     </section>
   );
 }
-
-export const devPortfolio = [
-  {
-    title: "Portfolio v1",
-    desc: "Hover over this card to unleash the power of CSS perspective",
-    imageSrc:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    roles: ["Design", "Development"],
-    cta: "Project Info",
-    bgColor: "#419eb2",
-    link: "/",
-  },
-  {
-    title: "Anthology Configurator",
-    desc: "With the convenient 3D configurator, clients of the Keeler Brass Company are able to take an active role in crafting their own hardware samples. ",
-    imageSrc: "/images/dev-work/anthology-configurator.jpg",
-    roles: ["Development"],
-    cta: "Project Info",
-    bgColor: "#6f5958",
-    link: "/project/anthology-configurator",
-  },
-];

@@ -94,7 +94,7 @@ export function Skills() {
                   Frameworks &amp; Libraries
                 </h3>
                 <div className="relative [@media(hover:hover)]:py-12">
-                  <AnimatedTooltips
+                  <IconTooltips
                     items={techStack}
                     className="justify-center w-full gap-3 flex-wrap mt-auto"
                     iconClassName="border dark:shadow-inset dark:opacity-90 dark:hover:opacity-100 transition duration-300 p-2 rounded-full w-16 h-16 flex items-center justify-center"
@@ -120,7 +120,7 @@ export function Skills() {
                 <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
                   Programming Languages
                 </h3>
-                <AnimatedTooltips
+                <IconTooltips
                   items={languages}
                   className="flex justify-center w-full gap-3 flex-wrap mt-auto"
                   iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
@@ -136,7 +136,7 @@ export function Skills() {
                 <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
                   Design &amp; UI/UX Tools
                 </h3>
-                <AnimatedTooltips
+                <IconTooltips
                   items={designTools}
                   className="justify-center w-full gap-3 flex-wrap mt-auto"
                   iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
@@ -153,7 +153,7 @@ export function Skills() {
                   Development &amp; Version Control
                 </h3>
 
-                <AnimatedTooltips
+                <IconTooltips
                   items={devTools}
                   className="justify-center w-full gap-3 flex-wrap mt-auto"
                   iconClassName="hover:-translate-y-1 border dark:shadow-inset dark:opacity-70 dark:hover:opacity-90 transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center"
@@ -201,7 +201,7 @@ const GridItem = ({ className, glowClassName, children }: GridItemProps) => {
 };
 
 /* Show for devices that have hover */
-const AnimatedTooltips = ({
+const IconTooltips = ({
   items,
   className,
   iconClassName,
@@ -227,7 +227,7 @@ const AnimatedTooltips = ({
         className
       )}
     >
-      {items.map((item, idx) => (
+      {items.map((item: SkillType, idx: number) => (
         <div
           className={cn(tooltipClassName, "relative")}
           key={item.name}
@@ -290,7 +290,7 @@ const LogoList = ({
         className
       )}
     >
-      {items?.map((item) => (
+      {items?.map((item: SkillType) => (
         <li key={item?.id} className="inline-flex items-center w-full">
           <span className="dark:shadow-inset transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center scale-75">
             {item?.icon}
@@ -466,3 +466,9 @@ const devTools = [
     icon: <Image src="icons/vscode.svg" width="40" height="40" alt="vscode" />,
   },
 ];
+
+interface SkillType {
+  id: number;
+  name: string;
+  icon: React.ReactNode;
+}

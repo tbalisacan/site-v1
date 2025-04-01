@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import ThemeSwitch from "../ThemeSwitch";
 import Image from "next/image";
+import { navItems } from "@/lib/constants";
+import { NavItem } from "@/types";
 
 export const FloatingNav = () => {
   const [scrolled, setScrolled] = useState(0);
@@ -56,19 +58,17 @@ export const FloatingNav = () => {
               </span>
             </Link>
             <div className="hidden md:flex gap-7 items-center">
-              {navItems.map(
-                (navItem: { name: string; link: string }, idx: number) => (
-                  <Link
-                    key={`link=${idx}`}
-                    href={navItem.link}
-                    className={cn(
-                      "relative z-10 items-center flex space-x-1 font-semibold hover:text-gray-800 dark:hover:text-gray-300 transition"
-                    )}
-                  >
-                    <span className="text-sm">{navItem.name}</span>
-                  </Link>
-                )
-              )}
+              {navItems.map((navItem: NavItem, idx: number) => (
+                <Link
+                  key={`link=${idx}`}
+                  href={navItem.link}
+                  className={cn(
+                    "relative z-10 items-center flex space-x-1 font-semibold hover:text-gray-800 dark:hover:text-gray-300 transition"
+                  )}
+                >
+                  <span className="text-sm">{navItem.name}</span>
+                </Link>
+              ))}
             </div>
 
             <div className="flex space-x-4 items-center ml-auto mr-2 md:mr-0 z-10 relative">
@@ -78,12 +78,12 @@ export const FloatingNav = () => {
                 <MenuToggle toggle={() => setIsOpen(!isOpen)} open={isOpen} />
               </div>
 
-              <a
+              <Link
                 href="/"
                 className="hidden md:flex  font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
               >
                 <span>Download CV</span>
-              </a>
+              </Link>
             </div>
 
             {/* mobile menu */}
@@ -94,7 +94,7 @@ export const FloatingNav = () => {
             >
               <motion.div variants={navVariants} className="overflow-hidden">
                 <ul className="flex flex-col space-y-4 items-center py-4 mt-1.5 border-t dark:border-t-white/10">
-                  {navItems?.map((item, i) => (
+                  {navItems?.map((item: NavItem, i: number) => (
                     <li key={i} onClick={() => setIsOpen(false)}>
                       <a
                         href={item?.link}
@@ -105,12 +105,12 @@ export const FloatingNav = () => {
                     </li>
                   ))}
                   <li>
-                    <a
+                    <Link
                       href="/"
                       className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
                     >
                       <span>Download CV</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </motion.div>
@@ -133,25 +133,6 @@ export const FloatingNav = () => {
     </AnimatePresence>
   );
 };
-
-const navItems = [
-  {
-    name: "Skills",
-    link: "/#skills",
-  },
-  {
-    name: "Experience",
-    link: "/#experience",
-  },
-  {
-    name: "Works",
-    link: "/#works",
-  },
-  {
-    name: "Contact",
-    link: "#contact",
-  },
-];
 
 const MenuToggle = ({
   toggle,

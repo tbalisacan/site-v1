@@ -5,8 +5,10 @@ import { Container } from "@/components/ui/container";
 import { AnimatePresence, motion } from "motion/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import { FiCheck } from "react-icons/fi";
 import { cn } from "@/lib/utils";
+import { jobExperience } from "@/lib/constants";
+import { Job } from "@/types";
+import { RiCheckLine } from "react-icons/ri";
 
 export function Experience() {
   const scrollRef = useRef(null);
@@ -41,7 +43,6 @@ export function Experience() {
             <Tabs
               defaultValue={jobExperience[0]?.company}
               className="grid md:grid-cols-4 gap-8"
-              // className="grid grid-cols-1 gap-8"
             >
               <TabsList
                 // aria-orientation="vertical"
@@ -51,7 +52,7 @@ export function Experience() {
                 )}
                 // className="flex gap-2 overflow-scroll"
               >
-                {jobExperience?.map((job, idx) => (
+                {jobExperience?.map((job: Job, idx: number) => (
                   <div
                     className="pb-2 relative"
                     key={job?.company}
@@ -115,7 +116,7 @@ export function Experience() {
                           aria-hidden
                           className="pt-1.5 text-primary flex-none"
                         >
-                          <FiCheck />
+                          <RiCheckLine />
                         </span>{" "}
                         {duty}
                       </li>
@@ -130,57 +131,3 @@ export function Experience() {
     </section>
   );
 }
-
-const jobExperience = [
-  {
-    company: "WebriQ",
-    logo: "/images/company-logos/webriq.svg",
-    duration: "Jul 2018 - Oct 2024",
-    position: "Web Designer & Front-End Developer",
-    duties: [
-      "Designed high-fidelity UI/UX prototypes in Figma, accelerating the development process;",
-      "Developed responsive web interfaces from Figma prototypes using ReactJS/NextJS/Gatsby  and Tailwind CSS, ensuring cross-browser compatibility;",
-      "Implemented component-based web design aligned with the company’s platform, StackShift, reducing development time through reusable code components;",
-      "Partnered with project managers and engaged with clients to refine technical requirements to reduce revisions and shorten delivery timelines",
-      "Optimized web app performance to achieve Lighthouse metric scores of 90-100;",
-      "Led front-end development for multiple projects, delivering pixel-perfect interfaces with optimized web performance;",
-      "Mentored team members on CSS, UI/UX, ReactJS, and site optimization to foster growth and improve code quality;",
-      "Researched and integrated Figma-to-code AI tools (Plasmic and Kombai) into development workflow to reduce manual implementation.",
-    ],
-  },
-  {
-    company: "Mopro",
-    logo: "/images/company-logos/mopro.png",
-    duration: "Feb 2017 - Jun 2018",
-    position: "Jr. Web Builder",
-    duties: [
-      "Built and deployed responsive websites using the company’s proprietary backend system;",
-      "Developed custom HTML, CSS, and JavaScript solutions for unique client needs;",
-      "Designed and optimized web-ready image assets to enhance site aesthetics and performance;",
-      "Provided real-time technical support to customer service teams for reduced issue resolution time.",
-    ],
-  },
-  {
-    company: "Tate Publishing",
-    logo: "/images/company-logos/tate.png",
-    duration: "Apr 2014 - Dec 2016",
-    position: "Promos Designer",
-    duties: [
-      "Revamped and formatted book layouts for various print formats using Adobe InDesign and Photoshop, ensuring high-quality print production;",
-      "Enhanced illustrations to create 3D books and coloring books;",
-      "Developed engaging social media branding for authors and music artists using Adobe Photoshop and provided email support, strengthening their online presence and audience engagement.",
-    ],
-  },
-  {
-    company: "Live2Sell, Inc.",
-    logo: "/images/company-logos/live2sell.png",
-    duration: "Oct 2012 - Feb 2013",
-    position: "Graphic Designer & Content Creator (Intern)",
-    duties: [
-      "Managed and updated WordPress blogs with SEO-optimized content;",
-      "Created visually engaging infographics using Adobe Photoshop/Illustrator for marketing campaigns;",
-      "Produced and edited short promotional videos using Vegas Pro;",
-      "Researched and wrote SEO-friendly articles on industry trends, improving website ranking and online visibility.",
-    ],
-  },
-];

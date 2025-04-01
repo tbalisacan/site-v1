@@ -4,9 +4,12 @@ import React from "react";
 import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ImBehance, ImGithub, ImLinkedin } from "react-icons/im";
+import Link from "next/link";
+import { contactDetails } from "@/lib/constants";
+import { AnimatedTooltip } from "./ui/animated-tooltip";
 
 export function Footer() {
+  const { email, phone, links } = contactDetails;
   return (
     <section className="pb-12 relative scroll-mt-28" id="contact">
       <Container className="relative z-20">
@@ -29,39 +32,41 @@ export function Footer() {
             Get in Touch
           </motion.h2>
           <div className="flex flex-col space-y-1 text-center">
-            <a
-              className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
-              href="mailto:tessa.balisacan@gmail.com"
-            >
-              tessa.balisacan@gmail.com
-            </a>
-            <a
-              className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
-              href="tel:+63-977-143-8397"
-            >
-              +63-977-143-8397
-            </a>
-            <div className="text-center my-4">
+            {email && (
               <a
+                className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
+                href={`mailto:${email}`}
+              >
+                {email}
+              </a>
+            )}
+
+            {phone && (
+              <a
+                className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
+                href={`tel:${phone}`}
+              >
+                {phone}
+              </a>
+            )}
+
+            <div className="text-center my-4">
+              <Link
                 href="/"
                 className="inline-flex font-heading border text-lg font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
               >
                 <span>Download CV</span>
-              </a>
+              </Link>
             </div>
-            <ul className="flex space-x-2 justify-center text-xl items-center my-4">
-              {externalSites?.map((site, idx) => (
-                <a
-                  key={idx}
-                  className="rounded-full dark:shadow-inset p-3 flex-none hover:-translate-y-1 transition duration-300 border text-black bg-white dark:bg-black dark:text-white dark:opacity-70 hover:opacity-100"
-                  href={site?.link}
-                  target="_blank"
-                  aria-label={site?.name}
-                >
-                  {site?.icon}
-                </a>
-              ))}
-            </ul>
+            {links && (
+              <div className="flex space-x-2 justify-center text-xl items-center my-4">
+                <AnimatedTooltip
+                  items={links}
+                  className="inline-flex"
+                  iconClassName="rounded-full dark:shadow-inset p-2 flex-none hover:-translate-y-1 transition duration-300 border text-black bg-white dark:bg-black dark:text-white dark:opacity-70 hover:opacity-100 text-2xl"
+                />
+              </div>
+            )}
           </div>
           <div className="text-center text-xs">
             &copy; {new Date().getFullYear()} T. Balisacan
@@ -78,21 +83,3 @@ export function Footer() {
     </section>
   );
 }
-
-const externalSites = [
-  {
-    name: "GitHub",
-    link: "https://github.com/tbalisacan",
-    icon: <ImGithub />,
-  },
-  {
-    name: "Behance",
-    link: "https://www.behance.net/tbalisacan",
-    icon: <ImBehance />,
-  },
-  {
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/in/tbalisacan/",
-    icon: <ImLinkedin />,
-  },
-];
