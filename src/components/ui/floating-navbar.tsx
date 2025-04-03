@@ -26,12 +26,12 @@ export const FloatingNav = () => {
     <AnimatePresence mode="wait">
       <div className={cn("w-full fixed top-4 z-[5000]")}>
         <motion.div
-          className="max-w-6xl mx-auto px-2 relative"
+          className="max-w-5xl mx-auto px-2 relative"
           initial={{
-            maxWidth: "72rem",
+            maxWidth: "64rem",
           }}
           animate={{
-            maxWidth: scrolled > 50 ? "70rem" : "72rem",
+            maxWidth: scrolled > 50 ? "60rem" : "64rem",
           }}
           transition={{
             duration: 0.3,
@@ -41,12 +41,12 @@ export const FloatingNav = () => {
             <Link
               href="/"
               className={cn(
-                "relative z-10 dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 font-bold font-heading transition"
+                "relative z-10 items-center flex space-x-1 text-black dark:text-white font-bold font-heading transition"
               )}
             >
-              <span className="w-7 h-7 relative rounded-full bg-primary/50 pt-0.5 overflow-hidden">
+              <span className="w-7 h-7 relative rounded-full overflow-hidden">
                 <Image
-                  src={"/images/avatartion.png"}
+                  src={"/images/site-icon.png"}
                   width="28"
                   height="28"
                   alt="logo"
@@ -63,7 +63,7 @@ export const FloatingNav = () => {
                   key={`link=${idx}`}
                   href={navItem.link}
                   className={cn(
-                    "relative z-10 items-center flex space-x-1 font-semibold hover:text-gray-800 dark:hover:text-gray-300 transition"
+                    "relative z-10 items-center flex space-x-1 font-semibold transition hover:text-black dark:hover:text-white duration-300"
                   )}
                 >
                   <span className="text-sm">{navItem.name}</span>
@@ -80,7 +80,7 @@ export const FloatingNav = () => {
 
               <Link
                 href="/"
-                className="hidden md:flex  font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                className="hidden md:flex font-medium font-heading border text-sm relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
               >
                 <span>Download CV</span>
               </Link>
@@ -118,7 +118,7 @@ export const FloatingNav = () => {
 
             {/* background */}
             <motion.div
-              className="absolute w-full h-full inset-0 bg-background/80 backdrop-blur border rounded-lg dark:border-white/10"
+              className="absolute w-full h-full inset-0 bg-background/80 backdrop-blur-sm border rounded-lg "
               initial={{ opacity: "0" }}
               animate={{
                 opacity: scrolled > 50 || isOpen ? "1" : "0",

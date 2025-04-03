@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container } from "@/components/ui/container";
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { contactDetails } from "@/lib/constants";
@@ -14,27 +14,13 @@ export function Footer() {
     <section className="pb-12 relative scroll-mt-28" id="contact">
       <Container className="relative z-20">
         <div className="flex flex-col space-y-8">
-          <motion.h2
-            // initial={{
-            //   opacity: 0,
-            //   y: 20,
-            // }}
-            // animate={{
-            //   opacity: 1,
-            //   y: [20, -5, 0],
-            // }}
-            // transition={{
-            //   duration: 0.5,
-            //   ease: [0.4, 0.0, 0.2, 1],
-            // }}
-            className="font-bold text-gray-800 dark:text-white leading-none text-3xl sm:text-5xl bg-opacity-50 font-heading text-center"
-          >
+          <h2 className="font-bold text-gray-800 dark:text-white leading-none text-3xl sm:text-5xl bg-opacity-50 font-heading text-center">
             Get in Touch
-          </motion.h2>
+          </h2>
           <div className="flex flex-col space-y-1 text-center">
             {email && (
               <a
-                className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
+                className="w-fit mx-auto text-lg font-heading opacity-70 hover:opacity-100 transition duration-300 text-heading-color"
                 href={`mailto:${email}`}
               >
                 {email}
@@ -43,7 +29,7 @@ export function Footer() {
 
             {phone && (
               <a
-                className="w-fit mx-auto text-lg font-medium font-heading opacity-70 hover:opacity-100 transition text-gray-800 dark:text-gray-300"
+                className="w-fit mx-auto text-lg font-heading opacity-70 hover:opacity-100 transition duration-300 text-heading-color"
                 href={`tel:${phone}`}
               >
                 {phone}
@@ -63,7 +49,7 @@ export function Footer() {
                 <AnimatedTooltip
                   items={links}
                   className="inline-flex"
-                  iconClassName="rounded-full dark:shadow-inset p-2 flex-none hover:-translate-y-1 transition duration-300 border text-black bg-white dark:bg-black dark:text-white dark:opacity-70 hover:opacity-100 text-2xl"
+                  iconClassName="rounded-full dark:shadow-inset p-2 flex-none hover:-translate-y-1 transition duration-300 border text-black bg-white dark:bg-black dark:text-white dark:opacity-70 hover:opacity-100 text-2xl shadow-inset"
                 />
               </div>
             )}
@@ -73,6 +59,7 @@ export function Footer() {
           </div>
         </div>
       </Container>
+
       <div className="absolute h-1/2 bg-gradient-to-t from-transparent to-background w-full top-0 z-10"></div>
       <div
         className={cn(

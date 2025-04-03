@@ -71,26 +71,27 @@ export function Skills() {
   }, []);
 
   return (
-    <section className="-mt-40 mb-32 relative z-10 scroll-mt-28" id="skills">
+    <motion.section
+      className="-mt-40 mb-32 relative z-10 scroll-mt-28"
+      id="skills"
+    >
       <Container>
         <div className="grid grid-cols-1 gap-3">
-          <ul className="grid gap-3 lg:grid-cols-3">
+          <div className="grid gap-3 lg:grid-cols-3">
             <GridItem
-              className="[&>div]:border-0 lg:[&>div]:border [&>div]:shadow-none lg:[&>div]:dark:border-white/10 lg:[&>div]:dark:bg-black/10 lg:[&>div]:shadow-box-inset"
+              className="[&>div]:border-0 lg:[&>div]:border [&>div]:shadow-none lg:[&>div]: lg:[&>div]:dark:bg-black/10 lg:[&>div]:shadow-box-inset"
               glowClassName="!hidden lg:!block"
             >
               <div className="lg:p-6 flex flex-col h-full mb-12 lg:mb-0">
-                <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
+                <h2 className="text-4xl font-bold text-heading-color font-heading">
                   Skills
                 </h2>
-                <p className="max-w-96 mt-4  font-medium">
-                  Plus continuous learning 💪
-                </p>
+                <p className="max-w-96 mt-4">Plus continuous learning 💪</p>
               </div>
             </GridItem>
             <GridItem className="lg:col-span-2">
               <div className="p-6 flex flex-col h-full">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                <h3 className="text-lg font-bold text-heading-color font-heading leading-tight mb-6">
                   Frameworks &amp; Libraries
                 </h3>
                 <div className="relative [@media(hover:hover)]:py-12">
@@ -113,11 +114,11 @@ export function Skills() {
                 </div>
               </div>
             </GridItem>
-          </ul>
-          <ul className="grid gap-3 sm:grid-cols-3">
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
             <GridItem>
               <div className="p-6 flex flex-col h-full">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                <h3 className="text-lg font-bold text-heading-color font-heading leading-tight mb-6">
                   Programming Languages
                 </h3>
                 <IconTooltips
@@ -133,7 +134,7 @@ export function Skills() {
             </GridItem>
             <GridItem>
               <div className="p-6 flex flex-col h-full">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                <h3 className="text-lg font-bold text-heading-color font-heading leading-tight mb-6">
                   Design &amp; UI/UX Tools
                 </h3>
                 <IconTooltips
@@ -149,7 +150,7 @@ export function Skills() {
             </GridItem>
             <GridItem>
               <div className="p-6 flex flex-col h-full">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 font-heading leading-tight mb-6">
+                <h3 className="text-lg font-bold text-heading-color font-heading leading-tight mb-6">
                   Development &amp; Version Control
                 </h3>
 
@@ -164,10 +165,10 @@ export function Skills() {
                 />
               </div>
             </GridItem>
-          </ul>
+          </div>
         </div>
       </Container>
-    </section>
+    </motion.section>
   );
 }
 
@@ -182,8 +183,8 @@ interface GridItemProps {
 
 const GridItem = ({ className, glowClassName, children }: GridItemProps) => {
   return (
-    <li className={`list-none ${className}`}>
-      <div className="relative h-full rounded-xl border dark:border-white/10 dark:bg-black/10 group lg:col-span-2 shadow-box-inset">
+    <div className={cn(className)}>
+      <div className="relative h-full rounded-xl border  dark:bg-black/10 group lg:col-span-2 shadow-box-inset">
         <GlowingEffect
           blur={0}
           borderWidth={1}
@@ -196,7 +197,7 @@ const GridItem = ({ className, glowClassName, children }: GridItemProps) => {
         />
         {children}
       </div>
-    </li>
+    </div>
   );
 };
 
@@ -295,7 +296,7 @@ const LogoList = ({
           <span className="dark:shadow-inset transition duration-300 p-2 rounded w-12 h-12 flex items-center justify-center scale-75">
             {item?.icon}
           </span>
-          <span className=" font-medium text-sm">{item?.name}</span>
+          <span className="text-sm">{item?.name}</span>
         </li>
       ))}
     </ul>
@@ -344,14 +345,14 @@ const techStack = [
     id: 1,
     name: "ReactJS",
     icon: (
-      <Image src="icons/reactjs.svg" width="40" height="40" alt="reactjs" />
+      <Image src="icons/reactjs.svg" width="40" height="40" alt="ReactJS" />
     ),
   },
   {
     id: 2,
     name: "Next.js",
     icon: (
-      <Image src="icons/nextjs2.svg" width="40" height="40" alt="nextjs2" />
+      <Image src="icons/nextjs2.svg" width="40" height="40" alt="Next.js" />
     ),
   },
   {
@@ -362,7 +363,7 @@ const techStack = [
         src="icons/tailwindcss.svg"
         width="40"
         height="40"
-        alt="tailwindcss"
+        alt="Tailwind CSS"
       />
     ),
   },
@@ -374,7 +375,7 @@ const techStack = [
         src="icons/shadcnui.svg"
         width="40"
         height="40"
-        alt="shadcnui"
+        alt="Shadcn UI"
         className="dark:brightness-0 dark:invert"
       />
     ),
@@ -382,18 +383,13 @@ const techStack = [
   {
     id: 5,
     name: "Gatsby",
-    icon: <Image src="icons/gatsby.svg" width="40" height="40" alt="gatsby" />,
+    icon: <Image src="icons/gatsby.svg" width="40" height="40" alt="Gatsby" />,
   },
   {
     id: 6,
     name: "Boostrap",
     icon: (
-      <Image
-        src="icons/bootstrap5.svg"
-        width="40"
-        height="40"
-        alt="bootstrap5"
-      />
+      <Image src="icons/bootstrap5.svg" width="40" height="40" alt="Boostrap" />
     ),
   },
 ];
@@ -407,24 +403,24 @@ const languages = [
         src="icons/typescript.svg"
         width="40"
         height="40"
-        alt="typescript"
+        alt="Typescript"
       />
     ),
   },
   {
     id: 2,
     name: "Javascript",
-    icon: <Image src="icons/js.svg" width="40" height="40" alt="js" />,
+    icon: <Image src="icons/js.svg" width="40" height="40" alt="Javascript" />,
   },
   {
     id: 3,
     name: "HTML5",
-    icon: <Image src="icons/html5.svg" width="40" height="40" alt="html5" />,
+    icon: <Image src="icons/html5.svg" width="40" height="40" alt="HTML5" />,
   },
   {
     id: 4,
     name: "CSS3",
-    icon: <Image src="icons/css3.svg" width="40" height="40" alt="css3" />,
+    icon: <Image src="icons/css3.svg" width="40" height="40" alt="CSS3" />,
   },
 ];
 
@@ -432,12 +428,12 @@ const designTools = [
   {
     id: 1,
     name: "Figma",
-    icon: <Image src="icons/figma.svg" width="40" height="40" alt="figma" />,
+    icon: <Image src="icons/figma.svg" width="40" height="40" alt="Figma" />,
   },
   {
     id: 2,
     name: "Photoshop",
-    icon: <Image src="icons/ps.svg" width="40" height="40" alt="ps" />,
+    icon: <Image src="icons/ps.svg" width="40" height="40" alt="Photoshop" />,
   },
 ];
 
@@ -445,7 +441,7 @@ const devTools = [
   {
     id: 1,
     name: "Git",
-    icon: <Image src="icons/git.svg" width="40" height="40" alt="git" />,
+    icon: <Image src="icons/git.svg" width="40" height="40" alt="Git" />,
   },
   {
     id: 2,
@@ -455,7 +451,7 @@ const devTools = [
         src="icons/github.svg"
         width="40"
         height="40"
-        alt="github"
+        alt="GitHub"
         className="dark:brightness-0 dark:invert"
       />
     ),
@@ -463,7 +459,7 @@ const devTools = [
   {
     id: 3,
     name: "VSCode",
-    icon: <Image src="icons/vscode.svg" width="40" height="40" alt="vscode" />,
+    icon: <Image src="icons/vscode.svg" width="40" height="40" alt="VSCode" />,
   },
 ];
 

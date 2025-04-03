@@ -27,7 +27,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "dark") {
     return (
       <RiSunLine
-        className="text-lg dark:text-white text-black"
+        className="text-lg dark:text-white text-black cursor-pointer"
         onClick={() => setTheme("light")}
       />
     );
@@ -36,7 +36,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "light") {
     return (
       <RiMoonLine
-        className="text-lg dark:text-white text-black"
+        className="text-lg dark:text-white text-black cursor-pointer"
         onClick={() => setTheme("dark")}
       />
     );

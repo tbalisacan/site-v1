@@ -54,15 +54,18 @@ export function DesignWorks() {
       <section className="my-32 md:my-48">
         <Header />
 
+        {/* mobile */}
         <Media at="xs">
           <Container>
-            <div className="flex overflow-scroll space-x-4 md:space-x-8 lg:space-x-12 pb-4 mt-12 w-full">
+            <div className="flex overflow-scroll  pb-4 border-b md:border-none mt-12 w-full">
               {designs.map((design: DesignProject, i: number) => (
                 <DesignCard project={design} key={`${design.title}-${i}`} />
               ))}
             </div>
           </Container>
         </Media>
+
+        {/* tablet and up */}
         <Media greaterThanOrEqual="sm">
           <div
             ref={ref}
@@ -72,9 +75,9 @@ export function DesignWorks() {
               style={{
                 opacity,
               }}
-              className="pt-16"
+              className="pt-16 flex flex-col space-y-4 md:space-y-8 lg:space-y-12"
             >
-              <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-8 lg:space-x-12 mb-4 md:mb-8 lg:mb-12">
+              <motion.div className="flex flex-row-reverse space-x-reverse ">
                 {firstRow.map((design: DesignProject, i: number) => (
                   <DesignCard
                     project={design}
@@ -83,7 +86,7 @@ export function DesignWorks() {
                   />
                 ))}
               </motion.div>
-              <motion.div className="flex flex-row space-x-4 md:space-x-8 lg:space-x-12 mb-4 md:mb-8 lg:mb-12">
+              <motion.div className="flex flex-row ">
                 {secondRow.map((design: DesignProject, i: number) => (
                   <DesignCard
                     project={design}
@@ -92,7 +95,7 @@ export function DesignWorks() {
                   />
                 ))}
               </motion.div>
-              <motion.div className="flex flex-row-reverse space-x-reverse space-x-4  md:space-x-8 lg:space-x-12">
+              <motion.div className="flex flex-row-reverse space-x-reverse ">
                 {thirdRow.map((design: DesignProject, i: number) => (
                   <DesignCard
                     project={design}
@@ -112,10 +115,10 @@ export function DesignWorks() {
 const Header = () => {
   return (
     <Container>
-      <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 font-heading">
+      <h2 className="text-4xl font-bold text-heading-color font-heading">
         Previous Design Work
       </h2>
-      <p className="font-medium max-w-5xl mx-auto mt-4">
+      <p className="max-w-5xl mx-auto mt-4">
         An assortment of clean and functional website designs.
       </p>
     </Container>
@@ -135,14 +138,14 @@ const DesignCard = ({
         x: translate,
       }}
       key={project.title}
-      className="group/product w-1/2 sm:w-1/3 relative flex-shrink-0"
+      className="group/product w-1/2 sm:w-1/4 relative flex-shrink-0 mr-4 md:mr-8 lg:mr-12"
     >
       <CardContainer>
-        <CardBody className="group/card relative rounded-xl border dark:border-white/10 dark:bg-[rgba(40,40,40,0.30)] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group flex flex-col gap-4 p-2 sm:p-4 w-full h-full">
+        <CardBody className="group/card relative rounded-xl border  dark:bg-[rgba(40,40,40,0.30)] shadow-box-inset group flex flex-col gap-4 p-2 sm:p-4 w-full h-full">
           <CardItem translateZ="50" className="w-full relative">
             <div
               className={cn(
-                "absolute w-full h-24 left-0 bottom-0 flex items-end justify-center z-10 pb-4 bg-gradient-to-b from-neutral-900/0 to-neutral-900/90 group-hover:opacity-100  transition duration-300 group/cta rounded-lg",
+                "absolute w-full h-24 left-0 bottom-0 flex items-end justify-center z-10 pb-4 bg-gradient-to-b from-neutral-900/0 to-neutral-900/90 group-hover:opacity-100 transition duration-300 group/cta rounded-lg",
                 "[@media(hover:hover)]:opacity-0"
               )}
             >

@@ -27,22 +27,26 @@ export const projects = [
     coverImage: "/images/dev-work/anthology-configurator.jpg",
     shortDesc:
       "With the convenient 3D configurator, clients of the Keeler Brass Company are able to take an active role in crafting their own hardware samples.",
-    desc: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
+    desc: `<p>The <strong>Keeler Brass Company</strong> manufactures rare luxury hardware offerings. Their first hardware launch, the Anthology Series, focuses on personalization and offers over 30,000 unique hardware combinations. To showcase this, the company partnered with WebriQ to develop a web app that enables their customers to create their own design.</p><p>The <strong>Anthology Configurator</strong> web app spotlights a 3D rendering of a hardware combination that updates as the customer selects provided options. Customers are also able to create a design suite of 11 hardware pieces based on the specs of one design.</p><p>Below are selected screenshots of the web app.</p>`,
     bgColor: "#6f5958",
     roles: [
       {
+        title: "Collaboration",
+        desc: "In collaborating with the project manager and lead UI/UX designer, we fine-tuned requirements and expectations to accurately translate the designer's vision to code.",
+      },
+      {
         title: "Front-end Development",
-        desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        desc: "I initiated development by converting the provided Figma prototype into pixel-perfect web interfaces, ensuring responsiveness, speed, and cross-brower compatibility.",
       },
     ],
     team: [
       {
         name: "WebriQ",
-        desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        desc: "Superstar development team.",
       },
       {
         name: "Belwith Marketing",
-        desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        desc: "Product design team and graphic designers provided visual assets and designed high-fidelity Figma prototype showcasing micro-interactions and user flows.",
       },
     ],
     images: [

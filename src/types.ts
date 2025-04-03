@@ -10,6 +10,7 @@ export interface Project {
   idx: number;
   title: string;
   slug: string;
+  launchDate?: string;
   coverImage?: string;
   shortDesc?: string;
   desc?: React.ReactNode;
