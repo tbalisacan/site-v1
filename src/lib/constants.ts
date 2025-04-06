@@ -31,11 +31,11 @@ export const projects = [
     bgColor: "#6f5958",
     roles: [
       {
-        title: "Collaboration",
+        name: "Collaboration",
         desc: "In collaborating with the project manager and lead UI/UX designer, we fine-tuned requirements and expectations to accurately translate the designer's vision to code.",
       },
       {
-        title: "Front-end Development",
+        name: "Front-end Development",
         desc: "I initiated development by converting the provided Figma prototype into pixel-perfect web interfaces, ensuring responsiveness, speed, and cross-brower compatibility.",
       },
     ],
@@ -97,11 +97,11 @@ export const projects = [
     bgColor: "#419eb2",
     roles: [
       {
-        title: "Development",
+        name: "Development",
         desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
       {
-        title: "Design",
+        name: "Design",
         desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
     ],

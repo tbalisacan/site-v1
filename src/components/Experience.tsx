@@ -62,7 +62,7 @@ export function Experience() {
                   <AnimatePresence>
                     {hoveredIndex === idx && (
                       <motion.span
-                        className="[@media(hover:none)]:hidden absolute inset-x-0 top-0 w-full h-[calc(100%-0.5rem-1px)] rounded-md bg-muted dark:bg-muted/50"
+                        className="[@media(hover:none)]:hidden absolute inset-x-0 top-0 w-full h-[calc(100%-0.5rem-1px)] rounded-md bg-muted dark:bg-muted"
                         layoutId="hoverBackground"
                         initial={{ opacity: 1 }}
                         animate={{

@@ -22,7 +22,7 @@ export interface Project {
 }
 
 export interface ProjectRole {
-  title: string;
+  name: string;
   desc?: string;
 }
 

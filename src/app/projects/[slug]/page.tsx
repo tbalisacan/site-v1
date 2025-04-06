@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/lib/constants";
 import { Project, ProjectRole, ImageType, ProjectTeam } from "@/types";
 import { Container } from "@/components/ui/container";
-import React from "react";
+import React, { JSX } from "react";
 import Image from "next/image";
 import {
   RiArrowLeftLine,
@@ -13,6 +13,12 @@ import {
 import { Spotlight } from "@/components/ui/spotlight";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -43,7 +49,7 @@ export default async function Post(props: Params) {
           className="-top-40 left-0 md:-top-20 md:left-60 z-20"
           fill="var(--primary)"
         />
-        <Container className="relative z-20 min-h-96">
+        <Container className="relative z-20">
           <div className="max-w-3xl flex flex-col space-y-8">
             <div>
               <h1 className="font-bold text-heading-color leading-none text-3xl sm:text-4xl bg-opacity-50 font-heading">
@@ -65,53 +71,39 @@ export default async function Post(props: Params) {
             )}
             <div className="grid grid-cols-1 gap-6">
               <div>
-                <h2 className="text-heading-color font-heading text-sm font-bold mb-1.5">
-                  My Role{roles?.length > 1 && "s"}
-                </h2>
-                <ul className=" flex flex-col space-y-2">
-                  {roles.map((role: ProjectRole, i: number) => (
-                    <li className="flex gap-2" key={`role-${i}`}>
-                      <span aria-hidden className="pt-1 text-primary flex-none">
-                        <RiCheckLine />
-                      </span>{" "}
-                      <span>
-                        <span className="font-bold">{role.title}</span>
-                        {role?.desc && (
-                          <p
-                            dangerouslySetInnerHTML={{ __html: role?.desc }}
-                            className="text-sm"
+                {!team && (
+                  <>
+                    <h2 className="font-heading font-bold mb-3">
+                      My Role{roles?.length > 1 && "s"}
+                    </h2>
+                    <RoleList listItems={roles} />
+                  </>
+                )}
+
+                {roles && team && (
+                  <Accordion type="multiple">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+                      <AccordionItem value="roles" className="h-fit">
+                        <AccordionTrigger>
+                          My Role{roles?.length > 1 && "s"}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <RoleList listItems={roles} icon={<RiCheckLine />} />
+                        </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="team" className="h-fit">
+                        <AccordionTrigger>Team Shoutout</AccordionTrigger>
+                        <AccordionContent>
+                          <RoleList
+                            listItems={team}
+                            icon={<RiArrowRightSLine />}
                           />
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </div>
+                  </Accordion>
+                )}
               </div>
-              {team && (
-                <div>
-                  <h2 className="text-heading-color font-heading text-sm font-bold mb-1.5">
-                    Team Shoutouts
-                  </h2>
-                  <ul className="flex flex-col space-y-2">
-                    {team?.map((team: ProjectTeam, i: number) => (
-                      <li className="flex gap-2" key={`team-${i}`}>
-                        <span
-                          aria-hidden
-                          className="pt-1 text-primary flex-none"
-                        >
-                          <RiArrowRightSLine />
-                        </span>{" "}
-                        <span>
-                          <span className="font-bold">{team?.name}</span>
-                          {team?.desc && (
-                            <p className="text-sm">{team?.desc}</p>
-                          )}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </Container>
@@ -134,21 +126,10 @@ export default async function Post(props: Params) {
                 <>
                   {images?.map((image: ImageType, i: number) => (
                     <div
-                      className="rounded-xl border group p-7 pb-0 relative overflow-hidden"
+                      className="rounded-xl border group p-7 relative overflow-hidden"
                       key={i}
                     >
-                      <div className="border-2 rounded-lg rounded-b-none border-b-0 overflow-hidden relative z-10">
-                        {/* <div
-                        className="px-3 py-3 w-full bg-foreground dark:bg-border flex space-x-1"
-                        aria-hidden
-                      >
-                        {new Array(3).fill(undefined).map((_, i) => (
-                          <span
-                            key={i}
-                            className="w-2 h-2 rounded-full border dark:border-white/20"
-                          />
-                        ))}
-                      </div> */}
+                      <div className="border-2 rounded-lg overflow-hidden relative z-10">
                         <div className="duration:300 transition aspect-[80/57] relative">
                           <Image
                             src={image?.path}
@@ -229,4 +210,32 @@ type Params = {
   params: Promise<{
     slug: string;
   }>;
+};
+
+interface RoleListProps {
+  listItems: ProjectRole[] | ProjectTeam[];
+  icon?: JSX.Element;
+}
+
+const RoleList = ({ listItems, icon }: RoleListProps) => {
+  return (
+    <ul className=" flex flex-col space-y-4">
+      {listItems.map((item, i) => (
+        <li className="flex space-x-2" key={`item-${i}`}>
+          <span aria-hidden className="pt-1 text-primary flex-none">
+            {icon ?? <RiCheckLine />}
+          </span>{" "}
+          <span>
+            <span className="font-bold block mb-1">{item?.name}</span>
+            {item?.desc && (
+              <p
+                dangerouslySetInnerHTML={{ __html: item?.desc }}
+                className="text-sm"
+              />
+            )}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
 };

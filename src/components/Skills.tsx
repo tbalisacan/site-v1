@@ -86,7 +86,7 @@ export function Skills() {
                 <h2 className="text-4xl font-bold text-heading-color font-heading">
                   Skills
                 </h2>
-                <p className="max-w-96 mt-4">Plus continuous learning 💪</p>
+                <p className="max-w-96 mt-4">Plus continuous learning...</p>
               </div>
             </GridItem>
             <GridItem className="lg:col-span-2">

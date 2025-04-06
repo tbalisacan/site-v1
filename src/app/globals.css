@@ -49,11 +49,14 @@
   --white-gradient: repeating-linear-gradient(100deg, #ffffff 0%, #ffffff 7%, var(--transparent) 10%, var(--transparent) 12%, #ffffff 16%);
   --dark-gradient: repeating-linear-gradient(100deg, #000000 0%, #000000 7%, var(--transparent) 10%, var(--transparent) 12%, #000000 16%);
   --aurora: repeating-linear-gradient(100deg, var(--blue-500) 10%, var(--indigo-300) 15%, var(--blue-300) 20%, var(--violet-200) 25%, var(--blue-400) 30%);
+  --shadow-inset: var(--inset-sh);
+  --shadow-box-inset: var(--box-inset-sh);
   --animate-aurora: aurora 60s linear infinite;
   --animate-spotlight: spotlight 2s ease .75s 1 forwards;
   --animate-move: move 5s linear infinite;
-  --shadow-inset: var(--inset-sh);
-  --shadow-box-inset: var(--box-inset-sh);
+  --animate-accordion-down: accordionDown 0.2s ease-out;
+  --animate-accordion-up: accordionUp 0.2s ease-out;
+
 }
 
 :root {
@@ -106,7 +109,7 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: #181818;
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
@@ -182,5 +185,25 @@
   100% {
     transform: translateX(200px);
     opacity: 0
+  }
+}
+
+@keyframes accordionDown {
+  from {
+    height: 0
+  }
+
+  to {
+    height: var(--radix-accordion-content-height)
+  }
+}
+
+@keyframes accordionUp {
+  from {
+    height: var(--radix-accordion-content-height)
+  }
+
+  to {
+    height: 0
   }
 }

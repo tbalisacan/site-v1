@@ -65,7 +65,7 @@ export function DevWorks() {
                           <span className="font-bold ">Roles:</span>{" "}
                           {item?.roles.map((role, i) => (
                             <span key={i}>
-                              {role?.title}
+                              {role?.name}
                               {item?.roles?.length &&
                                 (i + 1 < item?.roles?.length ? ", " : "")}
                             </span>
