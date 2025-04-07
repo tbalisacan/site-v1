@@ -82,7 +82,7 @@ export const FloatingNav = () => {
                 <a
                   href={contactDetails?.filePath}
                   target="_blank"
-                  className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                  className="hidden md:inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
                 >
                   Download CV
                 </a>
