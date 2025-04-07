@@ -50,59 +50,64 @@ export default async function Post(props: Params) {
           fill="var(--primary)"
         />
         <Container className="relative z-20">
-          <div className="max-w-3xl flex flex-col space-y-8">
-            <div>
-              <h1 className="font-bold text-heading-color leading-none text-3xl sm:text-4xl bg-opacity-50 font-heading">
-                {title}
-              </h1>
-              {launchDate && (
-                <p className="text-sm font-medium font-heading text-muted-foreground mt-1">
-                  Launched {launchDate}
-                </p>
-              )}
-            </div>
-            {desc && (
+          <div>
+            <div className="max-w-3xl flex flex-col space-y-8">
               <div>
-                <div
-                  className="col-span-5 flex flex-col space-y-5"
-                  dangerouslySetInnerHTML={{ __html: desc }}
-                ></div>
+                <h1 className="font-bold text-heading-color leading-none text-3xl sm:text-4xl bg-opacity-50 font-heading">
+                  {title}
+                </h1>
+                {launchDate && (
+                  <p className="text-sm font-medium font-heading text-muted-foreground mt-1">
+                    Launched {launchDate}
+                  </p>
+                )}
               </div>
-            )}
-            <div className="grid grid-cols-1 gap-6">
-              <div>
-                {!team && (
-                  <>
-                    <h2 className="font-heading font-bold mb-3">
-                      My Role{roles?.length > 1 && "s"}
-                    </h2>
-                    <RoleList listItems={roles} />
-                  </>
-                )}
+              {desc && (
+                <div>
+                  <div
+                    className="col-span-5 flex flex-col space-y-5"
+                    dangerouslySetInnerHTML={{ __html: desc }}
+                  ></div>
+                </div>
+              )}
+              <div className="grid grid-cols-1 gap-6">
+                <div>
+                  {!team && (
+                    <>
+                      <h2 className="font-heading font-bold mb-3">
+                        My Role{roles?.length > 1 && "s"}
+                      </h2>
+                      <RoleList listItems={roles} />
+                    </>
+                  )}
 
-                {roles && team && (
-                  <Accordion type="multiple">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-                      <AccordionItem value="roles" className="h-fit">
-                        <AccordionTrigger>
-                          My Role{roles?.length > 1 && "s"}
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <RoleList listItems={roles} icon={<RiCheckLine />} />
-                        </AccordionContent>
-                      </AccordionItem>
-                      <AccordionItem value="team" className="h-fit">
-                        <AccordionTrigger>Team Shoutout</AccordionTrigger>
-                        <AccordionContent>
-                          <RoleList
-                            listItems={team}
-                            icon={<RiArrowRightSLine />}
-                          />
-                        </AccordionContent>
-                      </AccordionItem>
-                    </div>
-                  </Accordion>
-                )}
+                  {roles && team && (
+                    <Accordion type="multiple">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                        <AccordionItem value="roles" className="h-fit">
+                          <AccordionTrigger>
+                            My Role{roles?.length > 1 && "s"}
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <RoleList
+                              listItems={roles}
+                              icon={<RiCheckLine />}
+                            />
+                          </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="team" className="h-fit">
+                          <AccordionTrigger>Team Shoutout</AccordionTrigger>
+                          <AccordionContent>
+                            <RoleList
+                              listItems={team}
+                              icon={<RiArrowRightSLine />}
+                            />
+                          </AccordionContent>
+                        </AccordionItem>
+                      </div>
+                    </Accordion>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -134,7 +139,7 @@ export default async function Post(props: Params) {
                           <Image
                             src={image?.path}
                             fill
-                            className="object-cover "
+                            className="object-cover object-top"
                             alt={image?.alt ?? "thumbnail"}
                             sizes="(min-width: 640px) 50vw, 100vw"
                           />
@@ -168,34 +173,53 @@ export default async function Post(props: Params) {
               )}
             </div>
           )}
+          <div className="mt-12 pb-2 border-b text-center">
+            <Link
+              href="/#works"
+              className="text-primary font-bold items-center gap-1 flex w-fit"
+            >
+              <RiArrowLeftLine />
+              Back to projects
+            </Link>
+          </div>
           <div className="mt-12 grid grid-cols-2">
             <div>
               {prev && (
-                <div>
-                  <p className="font-heading text-sm font-bold items-center gap-1 flex">
-                    <RiArrowLeftLine /> Previous
-                  </p>
-                  <Link
-                    href={`/projects/${prev?.slug}`}
-                    className="font-bold text-primary font-heading ml-auto"
-                  >
-                    {prev.title}
-                  </Link>
+                <div className="flex items-center space-x-4 relative w-fit">
+                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex items-center justify-center">
+                    <RiArrowLeftLine />
+                  </div>
+                  <div>
+                    <p className="font-heading text-sm font-bold items-center gap-1 flex">
+                      Previous
+                    </p>
+                    <Link
+                      href={`/projects/${prev?.slug}`}
+                      className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
+                    >
+                      {prev.title}
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
             <div className="text-right">
               {next && (
-                <div>
-                  <p className="font-heading text-sm font-bold items-center gap-1 flex justify-end">
-                    Next <RiArrowRightLine />
-                  </p>
-                  <Link
-                    href={`/projects/${next?.slug}`}
-                    className="font-bold text-primary font-heading ml-auto"
-                  >
-                    {next.title}
-                  </Link>
+                <div className="flex items-center space-x-4 relative w-fit ml-auto">
+                  <div>
+                    <p className="font-heading text-sm font-bold items-center gap-1 flex justify-end">
+                      Next
+                    </p>
+                    <Link
+                      href={`/projects/${next?.slug}`}
+                      className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
+                    >
+                      {next.title}
+                    </Link>
+                  </div>
+                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex items-center justify-center">
+                    <RiArrowRightLine />
+                  </div>
                 </div>
               )}
             </div>

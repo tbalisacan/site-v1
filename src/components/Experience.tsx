@@ -13,7 +13,17 @@ import { RiCheckLine } from "react-icons/ri";
 export function Experience() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <motion.section className="my-32 md:my-48 scroll-mt-28" id="experience">
+    <motion.section
+      initial={{ opacity: 0.0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      className="my-32 md:my-48 scroll-mt-40"
+      id="experience"
+    >
       <Container className="relative z-10">
         <div className="max-w-5xl mx-auto mb-12">
           <h2 className="text-4xl font-bold text-heading-color font-heading">

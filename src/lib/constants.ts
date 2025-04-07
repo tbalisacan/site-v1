@@ -24,10 +24,10 @@ export const projects = [
     idx: 0,
     title: "Anthology Configurator",
     slug: "anthology-configurator",
-    coverImage: "/images/dev-work/anthology-configurator.jpg",
+    coverImage: "/images/dev-work/anthology-configurator/thumbnail.jpg",
     shortDesc:
       "With the convenient 3D configurator, clients of the Keeler Brass Company are able to take an active role in crafting their own hardware samples.",
-    desc: `<p>The <strong>Keeler Brass Company</strong> manufactures rare luxury hardware offerings. Their first hardware launch, the Anthology Series, focuses on personalization and offers over 30,000 unique hardware combinations. To showcase this, the company partnered with WebriQ to develop a web app that enables their customers to create their own design.</p><p>The <strong>Anthology Configurator</strong> web app spotlights a 3D rendering of a hardware combination that updates as the customer selects provided options. Customers are also able to create a design suite of 11 hardware pieces based on the specs of one design.</p><p>Below are selected screenshots of the web app.</p>`,
+    desc: `<p>The <strong>Keeler Brass Company</strong> manufactures rare luxury hardware offerings. Their first hardware launch, the Anthology Series, focuses on personalization and offers over 30,000 unique hardware combinations. To showcase this, the company partnered with <strong>WebriQ</strong> to develop a web app that enables their customers to create their own design.</p><p>The <strong>Anthology Configurator</strong> web app spotlights a 3D rendering of a hardware combination that updates as the customer selects provided options. Customers are also able to create a design suite of 11 hardware pieces based on the specs of one design.</p><p>Below are selected screenshots of the web app. You can visit the Anthology Configurator <a class="text-primary underline underline-offset-2 decoration-1" href="https://www.keelerbrasscompany.com/anthology?productType=Bar+Pull&sku=KBC04-I-KN96-I" target="_blank">here</a>.</p>`,
     bgColor: "#6f5958",
     roles: [
       {
@@ -88,21 +88,34 @@ export const projects = [
   },
   {
     idx: 1,
-    title: "Personal Site v1",
-    slug: "site-v1",
-    coverImage:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    shortDesc: "Hover over this card to unleash the power of CSS perspective",
-    desc: "",
+    title: "Hickory Hardware",
+    slug: "hickory-hardware",
+    coverImage: "/images/dev-work/hickory-hardware/thumbnail.jpg",
+    shortDesc: "Ecommerce website for a hardware company.",
+    desc: `<p><strong>Hickory Hardware</strong> offers a diverse selection of original hardware designs in various styles, sizes, and finishes. The website is live at <a class="text-primary underline underline-offset-2 decoration-1" href="https://www.hickoryhardware.com/" target="_blank">hickoryhardware.com</a></p>`,
     bgColor: "#419eb2",
     roles: [
       {
-        name: "Development",
-        desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        name: "Design",
+        desc: "Given a detailed brief, I created designs for different pages of the ecommerce website. After a few rounds of feedback and discussions with the client's marketing team, I refined the high-fidelity prototype prior to heading off to the development phase.",
       },
       {
-        name: "Design",
-        desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        name: "Front-end Development",
+        desc: "In collaboration with the development team at <strong>WebriQ</strong>",
+      },
+    ],
+    images: [
+      {
+        path: "/images/dev-work/hickory-hardware/1.jpg",
+        alt: "",
+      },
+      {
+        path: "/images/dev-work/hickory-hardware/2.jpg",
+        alt: "",
+      },
+      {
+        path: "/images/dev-work/hickory-hardware/3.jpg",
+        alt: "",
       },
     ],
   },
@@ -120,6 +133,12 @@ export const designs = [
     link: "https://www.behance.net/gallery/215026301/Website-for-an-All-Terrain-Wheelchair",
     thumbnail: "/images/design-work/extreme-motus.jpg",
     bgColor: "#012050",
+  },
+  {
+    title: "Hickory Hardware",
+    link: "https://www.behance.net/gallery/223123731/Luxury-Interior-Design-Hardware-E-commerce-Website",
+    thumbnail: "/images/design-work/hickory-hardware.jpg",
+    bgColor: "#1E607B",
   },
   {
     title: "Montclair Chiropractic",
@@ -182,10 +201,10 @@ export const designs = [
     bgColor: "#8EADAD",
   },
   {
-    title: "Extreme Motus",
-    link: "https://www.behance.net/gallery/215026301/Website-for-an-All-Terrain-Wheelchair",
-    thumbnail: "/images/design-work/extreme-motus.jpg",
-    bgColor: "#012050",
+    title: "SolQ",
+    link: "https://www.behance.net/gallery/223125973/Solar-Energy-Company-Website",
+    thumbnail: "/images/design-work/solq.jpg",
+    bgColor: "#3185FF",
   },
   {
     title: "Merge Transportation",
@@ -281,4 +300,5 @@ export const contactDetails = {
       target: "_blank",
     },
   ],
+  filePath: "/assets/tbalisacan-resume.pdf",
 };

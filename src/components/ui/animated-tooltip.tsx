@@ -65,6 +65,7 @@ export const AnimatedTooltip = ({
               <a
                 href={item?.link}
                 target={item?.target ?? "_self"}
+                rel={item?.target === "_blank" ? "noopener noreferrer" : ""}
                 className={iconClassName}
                 aria-label={`Link to ${item.name}`}
               >

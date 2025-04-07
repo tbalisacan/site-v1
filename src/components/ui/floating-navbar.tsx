@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import ThemeSwitch from "../ThemeSwitch";
 import Image from "next/image";
-import { navItems } from "@/lib/constants";
+import { contactDetails, navItems } from "@/lib/constants";
 import { NavItem } from "@/types";
 
 export const FloatingNav = () => {
@@ -78,12 +78,15 @@ export const FloatingNav = () => {
                 <MenuToggle toggle={() => setIsOpen(!isOpen)} open={isOpen} />
               </div>
 
-              <Link
-                href="/"
-                className="hidden md:flex font-medium font-heading border text-sm relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
-              >
-                <span>Download CV</span>
-              </Link>
+              {contactDetails?.filePath && (
+                <a
+                  href={contactDetails?.filePath}
+                  target="_blank"
+                  className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                >
+                  Download CV
+                </a>
+              )}
             </div>
 
             {/* mobile menu */}
@@ -104,14 +107,18 @@ export const FloatingNav = () => {
                       </a>
                     </li>
                   ))}
-                  <li>
-                    <Link
-                      href="/"
-                      className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
-                    >
-                      <span>Download CV</span>
-                    </Link>
-                  </li>
+
+                  {contactDetails?.filePath && (
+                    <li>
+                      <a
+                        href={contactDetails?.filePath}
+                        target="_blank"
+                        className="inline-flex font-heading border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                      >
+                        Download CV
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </motion.div>
             </motion.div>

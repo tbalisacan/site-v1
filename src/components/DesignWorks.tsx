@@ -51,7 +51,16 @@ export function DesignWorks() {
 
   return (
     <MediaContextProvider>
-      <section className="my-32 md:my-48">
+      <motion.section
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.2,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="my-32 md:my-48"
+      >
         <Header />
 
         {/* mobile */}
@@ -107,7 +116,7 @@ export function DesignWorks() {
             </motion.div>
           </div>
         </Media>
-      </section>
+      </motion.section>
     </MediaContextProvider>
   );
 }
@@ -156,6 +165,7 @@ const DesignCard = ({
                 )}
                 href={project.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label={`Behance link to ${project.title} design`}
               >
                 View Design <RiExternalLinkLine />
@@ -167,6 +177,7 @@ const DesignCard = ({
                 )}
                 href={project.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label={`Behance link to ${project.title} design`}
               >
                 <RiExternalLinkLine />

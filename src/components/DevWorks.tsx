@@ -12,7 +12,17 @@ import { Project } from "@/types";
 
 export function DevWorks() {
   return (
-    <section className="my-32 md:my-48 scroll-mt-28" id="works">
+    <motion.section
+      initial={{ opacity: 0.0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      className="my-32 md:my-48 scroll-mt-40"
+      id="works"
+    >
       <Container>
         <div className="max-w-5xl mx-auto mb-12">
           <motion.h2 className="text-4xl font-bold text-heading-color font-heading">
@@ -86,6 +96,6 @@ export function DevWorks() {
             ?.reverse()}
         </div>
       </Container>
-    </section>
+    </motion.section>
   );
 }

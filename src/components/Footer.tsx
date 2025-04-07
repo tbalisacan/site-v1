@@ -2,18 +2,26 @@
 
 import React from "react";
 import { Container } from "@/components/ui/container";
-// import { motion } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { contactDetails } from "@/lib/constants";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 
 export function Footer() {
-  const { email, phone, links } = contactDetails;
+  const { email, phone, links, filePath } = contactDetails;
   return (
-    <section className="pb-12 relative scroll-mt-28" id="contact">
+    <section className="pb-12 relative scroll-mt-40" id="contact">
       <Container className="relative z-20">
-        <div className="flex flex-col space-y-8">
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="flex flex-col space-y-8"
+        >
           <h2 className="font-bold text-gray-800 dark:text-white leading-none text-3xl sm:text-5xl bg-opacity-50 font-heading text-center">
             Get in Touch
           </h2>
@@ -36,14 +44,18 @@ export function Footer() {
               </a>
             )}
 
-            <div className="text-center my-4">
-              <Link
-                href="/"
-                className="inline-flex font-heading border text-lg font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
-              >
-                <span>Download CV</span>
-              </Link>
-            </div>
+            {filePath && (
+              <div className="text-center my-4">
+                <a
+                  href={filePath}
+                  target="_blank"
+                  className="inline-flex font-heading border text-lg font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-5 py-3 rounded-md bg-primary hover:-translate-y-1 transition duration-300"
+                >
+                  Download CV
+                </a>
+              </div>
+            )}
+
             {links && (
               <div className="flex space-x-2 justify-center text-xl items-center my-4">
                 <AnimatedTooltip
@@ -57,7 +69,7 @@ export function Footer() {
           <div className="text-center text-xs">
             &copy; {new Date().getFullYear()} T. Balisacan
           </div>
-        </div>
+        </motion.div>
       </Container>
 
       <div className="absolute h-1/2 bg-gradient-to-t from-transparent to-background w-full top-0 z-10"></div>
