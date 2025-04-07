@@ -5,7 +5,6 @@ import React from "react";
 import { Container } from "./ui/container";
 import { Spotlight } from "./ui/spotlight";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { contactDetails } from "@/lib/constants";
 
 export function HeroSpotlight() {

@@ -4,7 +4,6 @@ import React from "react";
 import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { contactDetails } from "@/lib/constants";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 
