@@ -117,6 +117,14 @@ export const projects = [
         path: "/images/dev-work/hickory-hardware/3.jpg",
         alt: "",
       },
+      {
+        path: "/images/dev-work/hickory-hardware/4.jpg",
+        alt: "",
+      },
+      {
+        path: "/images/dev-work/hickory-hardware/5.jpg",
+        alt: "",
+      },
     ],
   },
 ];
