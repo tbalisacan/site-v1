@@ -51,8 +51,17 @@ export default async function Post(props: Params) {
         />
         <Container className="relative z-20">
           <div>
-            <div className="max-w-3xl flex flex-col space-y-8">
-              <div>
+            <div className="max-w-3xl">
+              <div className="mb-8">
+                <p className="uppercase font-heading font-bold text-heading-color mb-2">
+                  <Link
+                    href="/#works"
+                    className="text-primary font-bold items-center gap-1 flex w-fit"
+                  >
+                    <RiArrowLeftLine />
+                    Projects
+                  </Link>
+                </p>
                 <h1 className="font-bold text-heading-color leading-none text-3xl sm:text-4xl bg-opacity-50 font-heading">
                   {title}
                 </h1>
@@ -63,7 +72,7 @@ export default async function Post(props: Params) {
                 )}
               </div>
               {desc && (
-                <div>
+                <div className="mb-8">
                   <div
                     className="col-span-5 flex flex-col space-y-5"
                     dangerouslySetInnerHTML={{ __html: desc }}
@@ -141,7 +150,7 @@ export default async function Post(props: Params) {
                             fill
                             className="object-cover object-top"
                             alt={image?.alt ?? "thumbnail"}
-                            sizes="(min-width: 640px) 50vw, 100vw"
+                            sizes="(min-width: 640px) 25vw, 50vw"
                           />
                         </div>
                       </div>

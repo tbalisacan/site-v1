@@ -89,29 +89,35 @@ export function Experience() {
                 </div>
               ))}
             </TabsList>
-            {jobExperience?.map((job) => (
-              <TabsContent
-                key={job?.company}
-                value={job?.company}
-                className={cn("flex flex-col space-y-2", "md:col-span-3")}
-              >
-                <h3 className="text-xl leading-tight sm:text-2xl font-bold font-heading text-heading-color">
-                  {job?.position}{" "}
-                  <span className="text-primary">@{job.company}</span>
-                </h3>
-                <p className="text-xs mb-4">{job?.duration}</p>
-                <ul className="text-sm space-y-2 leading-relaxed">
-                  {job?.duties?.map((duty, i) => (
-                    <li key={i} className="flex gap-2">
-                      <span aria-hidden className="pt-1 text-primary flex-none">
-                        <RiCheckLine />
-                      </span>{" "}
-                      {duty}
-                    </li>
-                  ))}
-                </ul>
-              </TabsContent>
-            ))}
+            <div className="md:col-span-3 flex relative overflow-hidden">
+              {jobExperience?.map((job) => (
+                <TabsContent
+                  forceMount
+                  key={job?.company}
+                  value={job?.company}
+                  className={cn("flex flex-col space-y-2 w-full flex-none")}
+                >
+                  <h3 className="text-xl leading-tight sm:text-2xl font-bold font-heading text-heading-color">
+                    {job?.position}{" "}
+                    <span className="text-primary">@{job.company}</span>
+                  </h3>
+                  <p className="text-xs mb-4">{job?.duration}</p>
+                  <ul className="text-sm space-y-2 leading-relaxed">
+                    {job?.duties?.map((duty, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span
+                          aria-hidden
+                          className="pt-1 text-primary flex-none"
+                        >
+                          <RiCheckLine />
+                        </span>{" "}
+                        {duty}
+                      </li>
+                    ))}
+                  </ul>
+                </TabsContent>
+              ))}
+            </div>
           </Tabs>
         </div>
       </Container>

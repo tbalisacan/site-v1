@@ -236,13 +236,10 @@ export const jobExperience = [
     position: "Web Designer & Front-End Developer",
     duties: [
       "Designed high-fidelity UI/UX prototypes in Figma, accelerating the development process;",
-      "Developed responsive web interfaces from Figma prototypes using ReactJS/NextJS/Gatsby  and Tailwind CSS, ensuring cross-browser compatibility;",
-      "Implemented component-based web design aligned with the company’s platform, StackShift, reducing development time through reusable code components;",
-      "Partnered with project managers and engaged with clients to refine technical requirements to reduce revisions and shorten delivery timelines",
-      "Optimized web app performance to achieve Lighthouse metric scores of 90-100;",
-      "Led front-end development for multiple projects, delivering pixel-perfect interfaces with optimized web performance;",
-      "Mentored team members on CSS, UI/UX, ReactJS, and site optimization to foster growth and improve code quality;",
-      "Researched and integrated Figma-to-code AI tools (Plasmic and Kombai) into development workflow to reduce manual implementation.",
+      "Developed responsive, pixel-perfect web interfaces from Figma prototypes using ReactJS/NextJS/Gatsby and Tailwind CSS, ensuring optimized web performance & cross-browser compatibility;",
+      "Partnered with project managers and engaged with clients first-hand to refine technical requirements, reducing revisions and shortening delivery timelines;",
+      "Led front-end development for multiple projects;",
+      "Mentored team members on CSS, UI/UX, ReactJS, and site optimization to collectively improve code quality;",
     ],
   },
   {
