@@ -20,7 +20,7 @@ export function DevWorks() {
         duration: 0.8,
         ease: "easeInOut",
       }}
-      className="my-32 md:my-48 scroll-mt-40"
+      className="my-32 scroll-mt-40"
       id="works"
     >
       <Container>

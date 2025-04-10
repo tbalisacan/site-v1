@@ -195,19 +195,21 @@ export default async function Post(props: Params) {
             <div>
               {prev && (
                 <div className="flex items-center space-x-4 relative w-fit">
-                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex items-center justify-center">
+                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex flex-none items-center justify-center">
                     <RiArrowLeftLine />
                   </div>
                   <div>
                     <p className="font-heading text-sm font-bold items-center gap-1 flex">
                       Previous
                     </p>
-                    <Link
-                      href={`/projects/${prev?.slug}`}
-                      className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
-                    >
-                      {prev.title}
-                    </Link>
+                    <p className="leading-tight">
+                      <Link
+                        href={`/projects/${prev?.slug}`}
+                        className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
+                      >
+                        {prev.title}
+                      </Link>
+                    </p>
                   </div>
                 </div>
               )}
@@ -219,14 +221,16 @@ export default async function Post(props: Params) {
                     <p className="font-heading text-sm font-bold items-center gap-1 flex justify-end">
                       Next
                     </p>
-                    <Link
-                      href={`/projects/${next?.slug}`}
-                      className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
-                    >
-                      {next.title}
-                    </Link>
+                    <p className="leading-tight">
+                      <Link
+                        href={`/projects/${next?.slug}`}
+                        className="font-bold text-primary font-heading ml-auto after:absolute after:inset-0 after:w-full after:h-full"
+                      >
+                        {next.title}
+                      </Link>
+                    </p>
                   </div>
-                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex items-center justify-center">
+                  <div className="border dark:shadow-inset p-2 rounded w-12 h-12 flex flex-none items-center justify-center">
                     <RiArrowRightLine />
                   </div>
                 </div>

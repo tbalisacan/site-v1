@@ -59,7 +59,7 @@ export function DesignWorks() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="my-32 md:my-48"
+        className="my-32"
       >
         <Header />
 

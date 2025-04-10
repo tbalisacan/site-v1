@@ -21,7 +21,7 @@ export function Experience() {
         duration: 0.8,
         ease: "easeInOut",
       }}
-      className="my-32 md:my-48 scroll-mt-40"
+      className="my-32 scroll-mt-40"
       id="experience"
     >
       <Container className="relative z-10">
@@ -72,7 +72,7 @@ export function Experience() {
                   <AnimatePresence>
                     {hoveredIndex === idx && (
                       <motion.span
-                        className="[@media(hover:none)]:hidden absolute inset-x-0 top-0 w-full h-[calc(100%-0.5rem-1px)] rounded-md bg-muted dark:bg-muted"
+                        className="[@media(hover:none)]:hidden absolute inset-x-0 top-0 w-full h-full md:h-[calc(100%-0.5rem-1px)] rounded-md bg-muted dark:bg-muted"
                         layoutId="hoverBackground"
                         initial={{ opacity: 1 }}
                         animate={{
