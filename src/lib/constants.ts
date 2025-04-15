@@ -239,7 +239,7 @@ export const jobExperience = [
       "Developed responsive, pixel-perfect web interfaces from Figma prototypes using ReactJS/NextJS/Gatsby and Tailwind CSS, ensuring optimized web performance & cross-browser compatibility;",
       "Partnered with project managers and engaged with clients first-hand to refine technical requirements, reducing revisions and shortening delivery timelines;",
       "Led front-end development for multiple projects;",
-      "Mentored team members on CSS, UI/UX, ReactJS, and site optimization to collectively improve code quality;",
+      "Mentored team members on CSS, UI/UX, ReactJS, and site optimization to collectively improve code quality.",
     ],
   },
   {

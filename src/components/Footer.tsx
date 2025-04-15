@@ -66,7 +66,7 @@ export function Footer() {
             )}
           </div>
           <div className="text-center text-xs">
-            &copy; {new Date().getFullYear()} T. Balisacan
+            &copy; {new Date().getFullYear()} Designed and coded by yours truly.
           </div>
         </motion.div>
       </Container>

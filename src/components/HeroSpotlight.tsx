@@ -31,9 +31,9 @@ export function HeroSpotlight() {
           <div className="max-w-xl flex flex-col space-y-3">
             <p>
               Hi! I&apos;m Teresa Christine. I&apos;m a design-oriented
-              developer whose happy place is on the bridge connecting
-              delightful, pleasing design with seamless and intuitive user
-              experiences.
+              developer whose happy place is on the bridge connecting intuitive
+              design and optimum performance, creating seamless experiences for
+              a more delightful and accessible web.
             </p>
             {/* <p>
               In my spare time I&apos;m either drawing, consuming media, or
