@@ -44,7 +44,7 @@ export default async function Post(props: Params) {
 
   return (
     <>
-      <section className="relative pt-32 md:pt-48">
+      <section className="relative pt-32 md:pt-48 overflow-hidden">
         <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-60 z-20"
           fill="var(--primary)"

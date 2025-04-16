@@ -9,7 +9,7 @@ import { contactDetails } from "@/lib/constants";
 
 export function HeroSpotlight() {
   return (
-    <div className="relative pt-32 pb-64 md:pt-48 md:pb-72">
+    <div className="relative pt-32 pb-64 md:pt-48 md:pb-72 overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60 z-20"
         fill="var(--primary)"
